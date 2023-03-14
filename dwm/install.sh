@@ -34,4 +34,4 @@ cd "$_"
 ./update.sh
 
 echo -e "${BOLD}${GREEN}DONE. I recommend you run ./dotfiles to get a fully \
-functioning config and you can reboot.${NORMAL}"
+functioning config.${NORMAL}"
