@@ -33,6 +33,5 @@ git clone https://git.maby.dev/ange/suckless /tmp/suckless/
 cd "$_"
 ./update.sh
 
-echo -e "${BOLD}${GREEN}DONE. I recommend you run \`su echo \
-${username-\$username} -c ./dotfiles\` to get a fully functioning config.\
-${NORMAL}"
+echo -e "${BOLD}${GREEN}DONE. I recommend you run \`su ${username-\$username} \
+-c ./dotfiles\` to get a fully functioning config.${NORMAL}"
