@@ -5,6 +5,8 @@ NORMAL='\e[0m'
 BOLD='\e[1m'
 GREEN='\e[32m'
 
+PACMAN='pacman --noconfirm --needed -Syu'
+
 if [ "$EUID" = 0 ]; then
     echo 'This script needs root privileges.'
     exit 1

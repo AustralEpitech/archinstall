@@ -6,13 +6,12 @@ NORMAL='\e[0m'
 BOLD='\e[1m'
 GREEN='\e[32m'
 
-PACMAN='pacman --needed -Syu'
+PACMAN='pacman --noconfirm --needed -Syu'
 
 # System config
 cp -rf rootfs/ /
 ln -sf "/usr/share/zoneinfo/$tz" /etc/localtime
 hwclock --systohc
-timedatectl set-ntp true # TODO after system reboot?
 for l in "${locales[@]}"; do
     sed -i "/#\s*$l/s/^#\s*//" /etc/locale.gen
 done

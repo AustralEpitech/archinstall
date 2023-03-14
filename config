@@ -24,7 +24,6 @@ pkg=(
     grub efibootmgr os-prober
     htop
     man-{db,pages}
-    mpv
     neofetch
     neovim
     networkmanager
