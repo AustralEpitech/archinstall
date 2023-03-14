@@ -59,14 +59,17 @@ bootctl install
 root="$(findmnt -nr -o source /)"
 cryptdev="$(cryptsetup status "$root" | grep device | awk '{print $2}' || true)"
 if [ -n "$cryptdev" ]; then
-    uuid="$(blkid | grep /dev/nvme0n1p2 | awk '{print $2}')"
+    uuid="$(blkid | grep "$cryptdev" | awk '{print $2}')"
     options="cryptdevice=$uuid:$(basename "$root") "
 fi
 
 options="${options}root=$root"
 
 for f in /boot/loader/entries/*.conf; do
-    echo "options $options rw" >> "$f"
+    cat << EOF >> "$f"
+initrd  /$cpu-ucode.img
+options $options rw
+EOF
 done
 
 echo -e "${BOLD}${GREEN}DONE. You can install a desktop environment \
