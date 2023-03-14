@@ -26,7 +26,7 @@ systemctl enable    \
     reflector.timer \
     systemd-timesyncd
 
-if [ -d /sys/module/battery/ ]; then
+if ls -d /sys/class/power_supply/BAT*/ > /dev/null 2>&1; then
     $PACMAN "${laptop_pkg[@]}"
     systemctl enable tlp
 fi

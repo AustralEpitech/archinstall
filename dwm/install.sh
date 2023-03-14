@@ -27,10 +27,10 @@ case "$(lspci -k | grep -A3 -E '(VGA|3D)')" in
 esac
 $PACMAN "${pkg[@]}"
 
-cp -rf etc /etc
+cp -rfT etc /etc
 
 git clone https://git.maby.dev/ange/suckless /tmp/suckless/
-cd $_
+cd "$_"
 ./update.sh
 
 echo -e "${BOLD}${GREEN}DONE. I recommend you run ./dotfiles to get a fully \

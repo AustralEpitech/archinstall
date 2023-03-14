@@ -1,4 +1,5 @@
 #!/bin/bash -e
+cd
 
 config="git --git-dir $HOME/.dotfiles --work-tree $HOME"
 repo='https://git.maby.dev/ange/.dotfiles.git'
