@@ -1,0 +1,20 @@
+# User Variables
+# Comment to disable
+
+pkg=(
+    alacritty
+    dunst
+    feh
+    firefox
+    flameshot
+    i3lock xss-lock
+    materia-{gtk-theme,kde} papirus-icon-theme gtk-engine-murrine
+    noto-fonts{,-cjk,-emoji} ttf-{dejavu,liberation}
+    numlockx
+    pcmanfm
+    picom
+    pipewire{,-pulse} wireplumber pavucontrol playerctl
+    polkit-gnome
+    redshift
+    xorg-{server,xinit,xrandr,xsetroot} xclip
+)

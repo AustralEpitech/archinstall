@@ -1,0 +1,40 @@
+# User Variables
+# Comment to disable
+
+username=ange
+user_passwd=ange
+root_passwd=root
+
+hostname="$username-pc"
+
+tz='Europe/Paris'
+locales=(
+    'en_US.UTF-8'
+)
+lang="${locales[0]}"
+
+esp="$(lsblk -f | grep vfat | grep -o '/boot.\+')"
+
+pkg=(
+    base-devel
+    docker{,-compose}
+    efibootmgr
+    fuse
+    git
+    htop
+    man-{db,pages}
+    mpv
+    neofetch
+    neovim
+    networkmanager
+    ranger
+    reflector
+    terminus-font awesome-terminal-fonts
+    tree
+    udisks2
+    zsh
+)
+
+laptop_pkg=(
+    tlp
+)
