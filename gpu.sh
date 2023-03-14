@@ -29,4 +29,6 @@ esac
 
 sed -i "s/^MODULES=(/MODULES=($modules/" /etc/mkinitcpio.conf
 
-echo -e "${BOLD}${GREEN}DONE. You can reboot.${NORMAL}"
+mkinitcpio -P
+
+echo -e "${BOLD}${GREEN}GPU drivers install finished.${NORMAL}"

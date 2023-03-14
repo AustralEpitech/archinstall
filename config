@@ -9,18 +9,19 @@ hostname="$username-pc"
 
 tz='Europe/Paris'
 locales=(
-    'en_US.UTF-8'
+    'en_US'
 )
 lang="${locales[0]}"
 
-esp="$(lsblk -f | grep vfat | grep -o '/boot.\+')"
+esp="$(lsblk -f | grep vfat | grep -o '/boot.*')"
+grub_timeout=1
 
 pkg=(
     base-devel
     docker{,-compose}
-    efibootmgr
     fuse
     git
+    grub efibootmgr os-prober
     htop
     man-{db,pages}
     mpv

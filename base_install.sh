@@ -9,18 +9,18 @@ GREEN='\e[32m'
 PACMAN='pacman --needed -Syu'
 
 # System config
+cp -rf rootfs/ /
 ln -sf "/usr/share/zoneinfo/$tz" /etc/localtime
 hwclock --systohc
-timedatectl set-ntp true
+timedatectl set-ntp true # TODO after system reboot?
 for l in "${locales[@]}"; do
-    sed -i "/#\s*$l/s/^#\s*//" /etc/locale.gen # todo test
+    sed -i "/#\s*$l/s/^#\s*//" /etc/locale.gen
 done
 locale-gen
-echo "LANG=$lang" > /etc/locale.conf
+echo "LANG=$lang.UTF-8" > /etc/locale.conf
 echo "$hostname" > /etc/hostname
 
 # Packages
-cp -rf rootfs/ /
 $PACMAN "${pkg[@]}"
 systemctl enable NetworkManager
 systemctl enable reflector.timer
@@ -35,9 +35,13 @@ echo "root:$root_passwd" | chpasswd
 useradd -mG wheel "$username"
 echo "$username:$user_passwd" | chpasswd
 
-sed -i '/%wheel\s\+ALL=(ALL)\s\+ALL/s/^#\s*//' /etc/sudoers
+sed -i '/^# %wheel\s\+ALL=(ALL:ALL)\s\+ALL/s/^#\s*//' /etc/sudoers
 
-# Bootloader
+# drivers
+if blkid | grep -q LUKS; then
+    sed -i '/^HOOKS=(/s/filesystems/encrypt filesystems/' /etc/mkinitcpio.conf
+fi
+
 case "$(lscpu | grep Vendor)" in
     *AuthenticAMD*)
         $PACMAN amd-ucode
@@ -46,10 +50,16 @@ case "$(lscpu | grep Vendor)" in
         $PACMAN intel-ucode
         ;;
 esac
+./gpu.sh
 
-bootctl install
-cp loader/ /boot/loader # TODO
+# Bootloader
+sed -i '/GRUB_DISABLE_OS_PROBER=/s/.*/GRUB_DISABLE_OS_PROBER=true/' /etc/default/grub
 
-mkinitcpio -P
+if [ -n "$grub_timeout" ]; then
+    sed -i "/GRUB_TIMEOUT=/s/.*/GRUB_TIMEOUT=$grub_timeout/" /etc/default/grub
+fi
+
+grub-install --target=x86_64-efi --efi-directory="$esp" --bootloader-id=GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
 
 echo -e "${BOLD}${GREEN}DONE. Ctrl+D, umount -R /mnt and reboot${NORMAL}"

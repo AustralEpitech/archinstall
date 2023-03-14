@@ -1,0 +1,10 @@
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Target = linux*
+
+[Action]
+Description = Update grub config
+When = PostTransaction
+Exec = /usr/bin/grub-mkconfig -o /boot/grub/grub.cfg
