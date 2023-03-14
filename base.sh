@@ -55,7 +55,8 @@ esac
 ./gpu.sh
 
 # Bootloader
-sed -i '/GRUB_DISABLE_OS_PROBER=/s/.*/GRUB_DISABLE_OS_PROBER=true/' /etc/default/grub
+sed -i '/GRUB_DISABLE_OS_PROBER=/s/.*/GRUB_DISABLE_OS_PROBER=true/
+    /GRUB_ENABLE_CRYPTODISK=/s/.*/GRUB_ENABLE_CRYPTODISK=y/' /etc/default/grub
 
 if [ -n "$grub_timeout" ]; then
     sed -i "/GRUB_TIMEOUT=/s/.*/GRUB_TIMEOUT=$grub_timeout/" /etc/default/grub
