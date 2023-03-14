@@ -12,7 +12,7 @@ fi
 git clone --bare "$repo" "$HOME/.dotfiles"
 
 while ! $config checkout; do
-    echo 'Please remove conflicted files and press enter:'
+    echo 'Please the error above and press enter:'
     read -r
 done
 
