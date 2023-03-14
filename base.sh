@@ -13,7 +13,7 @@ cp -rfT rootfs/ /
 ln -sf "/usr/share/zoneinfo/$tz" /etc/localtime
 hwclock --systohc
 for l in "${locales[@]}"; do
-    sed -i "/#\s*$l/s/^#\s*//" /etc/locale.gen
+    sed -i "/#\s*$l.UTF-8/s/^#\s*//" /etc/locale.gen
 done
 locale-gen
 echo "LANG=$lang.UTF-8" > /etc/locale.conf
