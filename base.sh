@@ -58,15 +58,15 @@ bootctl install
 
 root="$(findmnt -nr -o source /)"
 cryptdev="$(cryptsetup status "$root" | grep device | awk '{print $2}' || true)"
-if "$cryptdev"; then
+if [ -n "$cryptdev" ]; then
     uuid="$(blkid | grep /dev/nvme0n1p2 | awk '{print $2}')"
     options="cryptdevice=$uuid:$(basename "$root") "
 fi
 
 options="${options}root=$root"
 
-find /boot/loader/entries/ | while read -r e; do
-    echo "options $options rw" >> "$e"
+for f in /boot/loader/entries/*.conf; do
+    echo "options $options rw" >> "$f"
 done
 
 echo -e "${BOLD}${GREEN}DONE. You can install a desktop environment \
