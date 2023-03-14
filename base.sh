@@ -20,7 +20,16 @@ echo "LANG=$lang.UTF-8" > /etc/locale.conf
 echo "$hostname" > /etc/hostname
 
 # Packages
-$PACMAN "${pkg[@]}"
+case "$(lscpu | grep Vendor)" in
+    *AuthenticAMD*)
+        cpu=amd
+        ;;
+    *GenuineIntel*)
+        cpu=intel
+        ;;
+esac
+
+$PACMAN "${pkg[@]}" "$cpu-ucode"
 systemctl enable    \
     NetworkManager  \
     docker.socket   \
@@ -42,26 +51,23 @@ sed -i '/^# %wheel\s\+ALL=(ALL:ALL)\s\+ALL/s/^#\s*//' /etc/sudoers
 # drivers
 sed -i '/^HOOKS=(/s/filesystems/encrypt filesystems/' /etc/mkinitcpio.conf
 
-case "$(lscpu | grep Vendor)" in
-    *AuthenticAMD*)
-        $PACMAN amd-ucode
-        ;;
-    *GenuineIntel*)
-        $PACMAN intel-ucode
-        ;;
-esac
 ./gpu.sh
 
 # Bootloader
-sed -i '/GRUB_DISABLE_OS_PROBER=/s/.*/GRUB_DISABLE_OS_PROBER=false/' /etc/default/grub
+bootctl install
 
-if [ -n "$grub_timeout" ]; then
-    sed -i "/GRUB_TIMEOUT=/s/.*/GRUB_TIMEOUT=$grub_timeout/" /etc/default/grub
+root="$(findmnt -nr -o source /)"
+cryptdev="$(cryptsetup status "$root" | grep device | awk '{print $2}' || true)"
+if "$cryptdev"; then
+    uuid="$(blkid | grep /dev/nvme0n1p2 | awk '{print $2}')"
+    options="cryptdevice=$uuid:$(basename "$root") "
 fi
 
-mkdir -p /boot/efi/
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
-grub-mkconfig -o /boot/grub/grub.cfg
+options="${options}root=$root"
+
+find /boot/loader/entries/ | while read -r e; do
+    echo "options $options rw" >> "$e"
+done
 
 echo -e "${BOLD}${GREEN}DONE. You can install a desktop environment \
 (see README.md). Then, you can Ctrl+D, umount -R /mnt and reboot${NORMAL}"
