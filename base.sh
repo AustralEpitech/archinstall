@@ -40,9 +40,7 @@ echo "$username:$user_passwd" | chpasswd
 sed -i '/^# %wheel\s\+ALL=(ALL:ALL)\s\+ALL/s/^#\s*//' /etc/sudoers
 
 # drivers
-if blkid | grep -q LUKS; then
-    sed -i '/^HOOKS=(/s/filesystems/encrypt filesystems/' /etc/mkinitcpio.conf
-fi
+sed -i '/^HOOKS=(/s/filesystems/encrypt filesystems/' /etc/mkinitcpio.conf
 
 case "$(lscpu | grep Vendor)" in
     *AuthenticAMD*)
@@ -55,8 +53,7 @@ esac
 ./gpu.sh
 
 # Bootloader
-sed -i '/GRUB_DISABLE_OS_PROBER=/s/.*/GRUB_DISABLE_OS_PROBER=false/
-    /GRUB_ENABLE_CRYPTODISK=/s/.*/GRUB_ENABLE_CRYPTODISK=y/' /etc/default/grub
+sed -i '/GRUB_DISABLE_OS_PROBER=/s/.*/GRUB_DISABLE_OS_PROBER=false/' /etc/default/grub
 
 if [ -n "$grub_timeout" ]; then
     sed -i "/GRUB_TIMEOUT=/s/.*/GRUB_TIMEOUT=$grub_timeout/" /etc/default/grub
