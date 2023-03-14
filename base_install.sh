@@ -9,7 +9,7 @@ GREEN='\e[32m'
 PACMAN='pacman --noconfirm --needed -Syu'
 
 # System config
-cp -rf rootfs/ /
+cp -rfT rootfs/ /
 ln -sf "/usr/share/zoneinfo/$tz" /etc/localtime
 hwclock --systohc
 for l in "${locales[@]}"; do
