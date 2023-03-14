@@ -23,6 +23,7 @@ echo "$hostname" > /etc/hostname
 $PACMAN "${pkg[@]}"
 systemctl enable    \
     NetworkManager  \
+    docker.socket   \
     reflector.timer \
     systemd-timesyncd
 
