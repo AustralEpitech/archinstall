@@ -59,7 +59,8 @@ if [ -n "$grub_timeout" ]; then
     sed -i "/GRUB_TIMEOUT=/s/.*/GRUB_TIMEOUT=$grub_timeout/" /etc/default/grub
 fi
 
-grub-install --target=x86_64-efi --bootloader-id=GRUB
+mkdir -p /boot/efi/
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 echo -e "${BOLD}${GREEN}DONE. You can install a desktop environment \
