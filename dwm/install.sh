@@ -33,4 +33,5 @@ git clone https://git.maby.dev/ange/suckless /tmp/suckless/
 cd $_
 ./update.sh
 
-echo -e "${BOLD}${GREEN}DONE. You can reboot.${NORMAL}"
+echo -e "${BOLD}${GREEN}DONE. I recommend you run ./dotfiles to get a fully \
+functioning config and you can reboot.${NORMAL}"
