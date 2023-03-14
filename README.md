@@ -9,15 +9,14 @@ and more!
 Follow the [Pre-installation](https://wiki.archlinux.org/title/Installation_guide#Pre-installation).
 Once you chrooted in the system, clone this script
 ```bash
-git clone https://git.maby.dev/ange/archinstall.git /tmp/ai
-cd /tmp/ai/
+git clone https://git.maby.dev/ange/archinstall /tmp/ai && cd $_
 ```
 
 **Review and edit the `config` file before running any script!**
 
 To install the base system, run:
 ```bash
-./base_install.sh
+./base.sh
 ```
 
 If you want a post install script, login as a normal user and run (replace

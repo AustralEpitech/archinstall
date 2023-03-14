@@ -29,6 +29,8 @@ $PACMAN "${pkg[@]}"
 
 cp -rf etc /etc
 
-echo -e "${BOLD}${GREEN}DONE. You can reboot.${NORMAL}"
+git clone https://git.maby.dev/ange/suckless /tmp/suckless/
+cd $_
+./update.sh
 
-# TODO install dwm
+echo -e "${BOLD}${GREEN}DONE. You can reboot.${NORMAL}"

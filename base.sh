@@ -21,8 +21,10 @@ echo "$hostname" > /etc/hostname
 
 # Packages
 $PACMAN "${pkg[@]}"
-systemctl enable NetworkManager
-systemctl enable reflector.timer
+systemctl enable    \
+    NetworkManager  \
+    reflector.timer \
+    systemd-timesyncd
 
 if [ -d /sys/module/battery/ ]; then
     $PACMAN "${laptop_pkg[@]}"
