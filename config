@@ -13,7 +13,6 @@ locales=(
 )
 lang="${locales[0]}"
 
-esp="$(lsblk -f | grep vfat | grep -o '/boot.*')"
 grub_timeout=1
 
 pkg=(
