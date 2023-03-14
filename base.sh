@@ -63,4 +63,5 @@ fi
 grub-install --target=x86_64-efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
-echo -e "${BOLD}${GREEN}DONE. Ctrl+D, umount -R /mnt and reboot${NORMAL}"
+echo -e "${BOLD}${GREEN}DONE. You can install a desktop environment \
+(see README.md). Then, you can Ctrl+D, umount -R /mnt and reboot${NORMAL}"
