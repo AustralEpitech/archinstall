@@ -15,14 +15,8 @@ fi
 
 git clone --bare "$repo" "$HOME/.dotfiles"
 
-while ! $config checkout; do
-    echo 'Please the error above and press enter:'
-    read -r
-done
-
+$config checkout -f
 $config submodule update --init --recursive --remote
 $config config status.showUntrackedFiles no
-
-chsh -s /bin/zsh
 
 echo -e "${BOLD}${GREEN}DONE. You need to reboot to apply the changes.${NORMAL}"

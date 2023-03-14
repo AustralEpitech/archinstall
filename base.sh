@@ -21,12 +21,8 @@ echo "$hostname" > /etc/hostname
 
 # Packages
 case "$(lscpu | grep Vendor)" in
-    *AuthenticAMD*)
-        cpu=amd
-        ;;
-    *GenuineIntel*)
-        cpu=intel
-        ;;
+    *AuthenticAMD*) cpu=amd   ;;
+    *GenuineIntel*) cpu=intel ;;
 esac
 
 $PACMAN "${pkg[@]}" "$cpu-ucode"
@@ -43,7 +39,7 @@ fi
 
 # Users
 echo "root:$root_passwd" | chpasswd
-useradd -mG wheel "$username"
+useradd -mG wheel "$username" -s "${default_shell-/bin/bash}"
 echo "$username:$user_passwd" | chpasswd
 
 sed -i '/^# %wheel\s\+ALL=(ALL:ALL)\s\+ALL/s/^#\s*//' /etc/sudoers

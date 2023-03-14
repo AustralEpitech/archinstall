@@ -30,7 +30,6 @@ case "$(lspci -k | grep -E '(VGA|3D)')" in
 esac
 
 sed -i "s/^MODULES=(/MODULES=($modules/" /etc/mkinitcpio.conf
-
 mkinitcpio -P
 
 echo -e "${BOLD}${GREEN}GPU drivers install finished.${NORMAL}"
