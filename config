@@ -15,13 +15,11 @@ locales=(
 )
 lang="${locales[0]}"
 
-grub_timeout=1
-
 pkg=(
     base-devel
     fuse
     git
-    grub efibootmgr os-prober
+    efibootmgr
     htop
     man-{db,pages}
     neofetch
