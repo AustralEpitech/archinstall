@@ -19,12 +19,16 @@ locale-gen
 echo "LANG=$lang.UTF-8" > /etc/locale.conf
 echo "$hostname" > /etc/hostname
 
-# Packages
+# Drivers
 case "$(lscpu | grep Vendor)" in
     *AuthenticAMD*) cpu=amd   ;;
     *GenuineIntel*) cpu=intel ;;
 esac
+sed -i '/^HOOKS=(/s/filesystems/encrypt filesystems/' /etc/mkinitcpio.conf
 
+./gpu.sh
+
+# Packages
 $PACMAN "${pkg[@]}" "$cpu-ucode"
 systemctl enable    \
     NetworkManager  \
@@ -43,11 +47,6 @@ useradd -mG wheel "$username" -s "${default_shell-/bin/bash}"
 echo "$username:$user_passwd" | chpasswd
 
 sed -i '/^# %wheel\s\+ALL=(ALL:ALL)\s\+ALL/s/^#\s*//' /etc/sudoers
-
-# drivers
-sed -i '/^HOOKS=(/s/filesystems/encrypt filesystems/' /etc/mkinitcpio.conf
-
-./gpu.sh
 
 # Bootloader
 bootctl install
