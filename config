@@ -19,7 +19,6 @@ grub_timeout=1
 
 pkg=(
     base-devel
-    docker{,-compose}
     fuse
     git
     grub efibootmgr os-prober
@@ -34,6 +33,7 @@ pkg=(
     tree
     udisks2
     zsh
+    {podman,-docker} docker-compose
 )
 
 laptop_pkg=(

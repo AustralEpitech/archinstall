@@ -32,7 +32,7 @@ sed -i '/^HOOKS=(/s/filesystems/encrypt filesystems/' /etc/mkinitcpio.conf
 $PACMAN "${pkg[@]}" "$cpu-ucode"
 systemctl enable    \
     NetworkManager  \
-    docker.socket   \
+    podman.socket   \
     reflector.timer \
     systemd-timesyncd
 
