@@ -31,7 +31,7 @@ pkg=(
     tree
     udisks2
     zsh
-    {podman,-docker} docker-compose
+    podman{,-docker} docker-compose
 )
 
 laptop_pkg=(
