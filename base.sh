@@ -46,7 +46,7 @@ echo "root:$root_passwd" | chpasswd
 useradd -mG wheel "$username" -s "${default_shell-/bin/bash}"
 echo "$username:$user_passwd" | chpasswd
 
-sed -i '/^# %wheel\s\+ALL=(ALL:ALL)\s\+ALL/s/^#\s*//' /etc/sudoers
+sed -i '/^#\s*%wheel\s\+ALL=(ALL:ALL)\s\+ALL/s/^#\s*//' /etc/sudoers
 
 # Bootloader
 bootctl install
