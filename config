@@ -17,21 +17,21 @@ lang="${locales[0]}"
 
 pkg=(
     base-devel
+    efibootmgr
     fuse
     git
-    efibootmgr
     htop
     man-{db,pages}
     neofetch
     neovim
     networkmanager
+    podman{,-docker} docker-compose
     ranger
     reflector
     terminus-font awesome-terminal-fonts
     tree
     udisks2
     zsh
-    podman{,-docker} docker-compose
 )
 
 laptop_pkg=(
