@@ -31,6 +31,7 @@ pkg=(
     terminus-font awesome-terminal-fonts
     tree
     udisks2
+    xdg-user-dirs
     zsh
 )
 

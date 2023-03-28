@@ -46,6 +46,7 @@ fi
 echo "root:$root_passwd" | chpasswd
 useradd -mG wheel "$username" -s "${default_shell-/bin/bash}"
 echo "$username:$user_passwd" | chpasswd
+su "$username" -c 'xdg-user-dirs-update' 2> /dev/null || true
 
 sed -i '/^#\s*%wheel\s\+ALL=(ALL:ALL)\s\+ALL/s/^#\s*//' /etc/sudoers
 
