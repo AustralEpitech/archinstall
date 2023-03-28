@@ -16,7 +16,7 @@ case "$(lspci -k | grep -E '(VGA|3D)')" in
     *NVIDIA*)
         $PACMAN nvidia{,-utils,-settings}
         mkdir -p /etc/pacman.d/hooks/
-        cp nvidia.hook /etc/pacman.d/hooks/
+        cp -rfT rootfs_nvidia/ /
         modules='nvidia nvidia_modeset nvidia_uvm nvidia_drm'
         ;;
     *AMD*)

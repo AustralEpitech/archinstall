@@ -38,6 +38,7 @@ systemctl enable    \
 
 if ls -d /sys/class/power_supply/BAT*/ > /dev/null 2>&1; then
     $PACMAN "${laptop_pkg[@]}"
+    cp -rfT rootfs_laptop/ /
     systemctl enable tlp
 fi
 
