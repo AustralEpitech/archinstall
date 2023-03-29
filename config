@@ -19,6 +19,7 @@ pkg=(
     base-devel
     efibootmgr
     fuse
+    fzf
     git
     htop
     man-{db,pages}
