@@ -7,6 +7,7 @@ pkg=(
     feh
     firefox
     flameshot
+    gammastep
     i3lock xss-lock
     materia-{gtk-theme,kde} papirus-icon-theme gtk-engine-murrine
     mpv
@@ -16,6 +17,5 @@ pkg=(
     picom
     pipewire{,-pulse,-jack} wireplumber pavucontrol playerctl
     polkit-gnome
-    redshift
     xorg-{server,xinit,xrandr,xsetroot} xclip
 )
