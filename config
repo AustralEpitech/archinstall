@@ -24,7 +24,7 @@ pkg=(
     htop
     man-{db,pages}
     neofetch
-    neovim
+    neovim python-neovim
     networkmanager
     podman{,-docker} docker-compose
     ranger
