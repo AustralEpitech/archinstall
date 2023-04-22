@@ -12,7 +12,6 @@ pkg=(
     materia-{gtk-theme,kde} papirus-icon-theme gtk-engine-murrine
     mpv
     noto-fonts{,-cjk,-emoji} ttf-{dejavu,liberation}
-    numlockx
     pcmanfm
     picom
     pipewire{,-pulse,-jack} wireplumber pavucontrol playerctl
