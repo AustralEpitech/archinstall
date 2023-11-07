@@ -16,9 +16,12 @@ $EDITOR config
 ./base.sh
 ```
 
-If you want to install a gui (replace *gui* with your choice):
+If you want to install a gui
 ```bash
-$EDITOR gui/config
+$EDITOR ./gui/config
+./gui/install.sh
+
+$EDITOR ./gui/config
 ./gui/install.sh
 ```
 

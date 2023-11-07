@@ -1,9 +1,11 @@
 #!/bin/bash -e
 cd
 
-NORMAL='\e[0m'
-BOLD='\e[1m'
-GREEN='\e[32m'
+if [ -t 1 ]; then
+    NORMAL='\e[0m'
+    BOLD='\e[1m'
+    GREEN='\e[32m'
+fi
 
 config="git --git-dir $HOME/.dotfiles --work-tree $HOME"
 repo='https://git.maby.dev/ange/.dotfiles.git'

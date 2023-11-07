@@ -1,9 +1,12 @@
 #!/bin/bash -e
 cd "$(dirname "$0")"
+. ./config
 
-NORMAL='\e[0m'
-BOLD='\e[1m'
-GREEN='\e[32m'
+if [ -t 1 ]; then
+    NORMAL='\e[0m'
+    BOLD='\e[1m'
+    GREEN='\e[32m'
+fi
 
 PACMAN='pacman --noconfirm --needed -Syu'
 
@@ -12,13 +15,10 @@ if [ "$EUID" != 0 ]; then
     exit 1
 fi
 
+$PACMAN "${pkg[@]}" flatpak
+flatpak install "${flatpakpkg[@]}"
+
 case "$(lspci -k | grep -E '(VGA|3D)')" in
-    *NVIDIA*)
-        $PACMAN nvidia{,-utils,-settings}
-        mkdir -p /etc/pacman.d/hooks/
-        cp -rfT rootfs_nvidia/ /
-        modules='nvidia nvidia_modeset nvidia_uvm nvidia_drm'
-        ;;
     *AMD*)
         $PACMAN mesa vulkan-radeon
         modules=amdgpu
@@ -27,9 +27,15 @@ case "$(lspci -k | grep -E '(VGA|3D)')" in
         $PACMAN mesa vulkan-intel
         modules=i915
         ;;
+    *NVIDIA*)
+        $PACMAN nvidia{,-utils,-settings}
+        modules='nvidia nvidia_modeset nvidia_uvm nvidia_drm'
+        ;;
 esac
 
 sed -i "s/^MODULES=(/MODULES=($modules/" /etc/mkinitcpio.conf
 mkinitcpio -P
+
+xdg-user-dirs-update
 
 echo -e "${BOLD}${GREEN}GPU drivers install finished.${NORMAL}"

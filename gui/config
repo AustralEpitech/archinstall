@@ -1,20 +1,28 @@
-# User Variables
-# Comment to disable
-
 pkg=(
     alacritty
     dunst
     feh
-    firefox
     flameshot
     gammastep
-    i3lock xss-lock
+    imagemagick
     materia-{gtk-theme,kde} papirus-icon-theme gtk-engine-murrine
     mpv
     noto-fonts{,-cjk,-emoji} ttf-{dejavu,liberation}
     pcmanfm
-    picom
     pipewire{,-pulse,-jack} wireplumber pavucontrol playerctl
     polkit-gnome
-    xorg-{server,xinit,xrandr,xsetroot} xclip
+    xdg-user-dirs
+    yt-dlp
+    zenity
 )
+
+flatpakpkg=(
+    com.valvesoftware.Steam
+    net.lutris.Lutris
+    org.getmonero.Monero
+    org.gimp.GIMP
+    org.mozilla.Thunderbird
+    org.mozilla.firefox
+)
+
+# vim: ft=sh

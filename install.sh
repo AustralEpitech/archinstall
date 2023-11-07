@@ -2,9 +2,11 @@
 cd "$(dirname "$0")"
 . ./config
 
-NORMAL='\e[0m'
-BOLD='\e[1m'
-GREEN='\e[32m'
+if [ -t 1 ]; then
+    NORMAL='\e[0m'
+    BOLD='\e[1m'
+    GREEN='\e[32m'
+fi
 
 PACMAN='pacman --noconfirm --needed -Syu'
 
@@ -26,25 +28,23 @@ case "$(lscpu | grep Vendor)" in
 esac
 sed -i '/^HOOKS=(/s/filesystems/encrypt filesystems/' /etc/mkinitcpio.conf
 
-./gpu.sh
-
 # Packages
 $PACMAN "${pkg[@]}" "$cpu-ucode"
-systemctl enable    \
-    NetworkManager  \
-    podman.socket   \
-    reflector.timer \
+systemctl enable      \
+    NetworkManager    \
+    podman.socket     \
+    reflector.timer   \
+    systemd-resolved  \
     systemd-timesyncd
 
 if ls -d /sys/class/power_supply/BAT*/ > /dev/null 2>&1; then
     $PACMAN "${laptop_pkg[@]}"
-    cp -rfT rootfs_laptop/ /
     systemctl enable tlp
 fi
 
 # Users
 echo "root:$root_passwd" | chpasswd
-useradd -mG wheel "$username" -s "${default_shell-/bin/bash}"
+useradd -mG wheel,video "$username" -s "${default_shell-/bin/bash}"
 echo "$username:$user_passwd" | chpasswd
 su "$username" -c 'xdg-user-dirs-update' 2> /dev/null || true
 

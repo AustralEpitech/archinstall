@@ -21,21 +21,29 @@ pkg=(
     fuse
     fzf
     git
+    gnu-netcat
     htop
-    man-{db,pages}
+    jq
+    linux{,lts,firmware}
+    lsof
+    man-{db,pages} tldr
     neofetch
-    neovim python-neovim
-    networkmanager
-    podman{,-docker} docker-compose
+    neovim{,-lspconfig,-nvim-treesitter} python-pynvim ripgrep tree-sitter-cli
+    networkmanager iptables-nft systemd-resolved wireguard-tools
+    p7zip unrar
+    podman{,-compose}
     ranger
     reflector
+    rename{,utils}
+    rsync
     terminus-font awesome-terminal-fonts
     tree
     udisks2
-    xdg-user-dirs
     zsh
 )
 
 laptop_pkg=(
     tlp
 )
+
+# vim: ft=sh
