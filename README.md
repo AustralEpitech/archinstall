@@ -21,8 +21,8 @@ If you want to install a gui
 $EDITOR ./gui/config
 ./gui/install.sh
 
-$EDITOR ./gui/config
-./gui/install.sh
+$EDITOR ./gui/$GUI/config
+./gui/$GUI/install.sh
 ```
 
 For the dotfiles, run the script as the newly created user:

@@ -30,11 +30,13 @@ sed -i '/^HOOKS=(/s/filesystems/encrypt filesystems/' /etc/mkinitcpio.conf
 
 # Packages
 $PACMAN "${pkg[@]}" "$cpu-ucode"
-systemctl enable      \
-    NetworkManager    \
-    podman.socket     \
-    reflector.timer   \
-    systemd-resolved  \
+systemctl enable     \
+    NetworkManager   \
+    ip6tables        \
+    iptables         \
+    podman.socket    \
+    reflector.timer  \
+    systemd-resolved \
     systemd-timesyncd
 
 if ls -d /sys/class/power_supply/BAT*/ > /dev/null 2>&1; then
