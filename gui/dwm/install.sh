@@ -3,10 +3,8 @@ cd "$(dirname "$0")"
 . ./config
 . ../../lib.sh
 
-if [ "$EUID" != 0 ]; then
-    echo 'This script needs root privileges.'
-    exit 1
-fi
+awk 'p; /pattern/{p=1}' "$(basename "$0")" | arch-chroot /mnt/ bash -ex; exit
+
 
 # drivers
 case "$(lspci -k | grep -A3 -E '(VGA|3D)')" in
@@ -28,5 +26,4 @@ git clone https://git.maby.dev/ange/suckless.git /tmp/suckless/
 cd /tmp/suckless
 ./update.sh
 
-echo -e "${BOLD}${GREEN}DONE. I recommend you run \`su ${username-\$username} \
--c ./dotfiles\` to get a fully functioning config.${NORMAL}"
+echo -e "${BOLD}${GREEN}DONE. I recommend you to install dotfiles.sh to get a fully functioning config.${NORMAL}"

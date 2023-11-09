@@ -1,12 +1,10 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 cd "$(dirname "$0")"
 . ./config
 . ../lib.sh
 
-if [ "$EUID" != 0 ]; then
-    echo 'This script needs root privileges.'
-    exit 1
-fi
+awk 'p; /pattern/{p=1}' "$(basename "$0")" | arch-chroot /mnt/ bash -ex; exit
+
 
 pac "${pkg[@]}" flatpak
 flatpak install -y "${flatpakpkg[@]}"
