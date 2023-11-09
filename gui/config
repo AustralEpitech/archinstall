@@ -5,6 +5,7 @@ pkg=(
     flameshot
     gammastep
     imagemagick
+    keepassxc
     materia-{gtk-theme,kde} papirus-icon-theme gtk-engine-murrine
     mpv
     noto-fonts{,-cjk,-emoji} ttf-{dejavu,liberation}

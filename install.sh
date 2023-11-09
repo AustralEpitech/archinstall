@@ -1,14 +1,7 @@
 #!/bin/bash -e
 cd "$(dirname "$0")"
 . ./config
-
-if [ -t 1 ]; then
-    NORMAL='\e[0m'
-    BOLD='\e[1m'
-    GREEN='\e[32m'
-fi
-
-PACMAN='pacman --noconfirm --needed -Syu'
+. ./lib.sh
 
 # System config
 cp -rfT rootfs/ /
@@ -29,7 +22,7 @@ esac
 sed -i '/^HOOKS=(/s/filesystems/encrypt filesystems/' /etc/mkinitcpio.conf
 
 # Packages
-$PACMAN "${pkg[@]}" "$cpu-ucode"
+pac "${pkg[@]}" "$cpu-ucode"
 systemctl enable     \
     NetworkManager   \
     ip6tables        \
@@ -40,7 +33,7 @@ systemctl enable     \
     systemd-timesyncd
 
 if ls -d /sys/class/power_supply/BAT*/ > /dev/null 2>&1; then
-    $PACMAN "${laptop_pkg[@]}"
+    pac "${laptop_pkg[@]}"
     systemctl enable tlp
 fi
 

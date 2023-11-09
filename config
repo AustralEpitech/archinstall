@@ -24,17 +24,17 @@ pkg=(
     gnu-netcat
     htop
     jq
-    linux{,lts,firmware}
+    linux{,-lts,-firmware}
     lsof
     man-{db,pages} tldr
     neofetch
     neovim{,-lspconfig,-nvim-treesitter} python-pynvim ripgrep tree-sitter-cli
-    networkmanager iptables-nft systemd-resolved wireguard-tools
+    networkmanager iptables-nft wireguard-tools
     p7zip unrar
     podman{,-compose}
     ranger
     reflector
-    rename{,utils}
+    renameutils perl-rename
     rsync
     terminus-font awesome-terminal-fonts
     tree

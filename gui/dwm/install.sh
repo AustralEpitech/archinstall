@@ -1,14 +1,7 @@
 #!/bin/bash -e
 cd "$(dirname "$0")"
 . ./config
-
-if [ -t 1 ]; then
-    NORMAL='\e[0m'
-    BOLD='\e[1m'
-    GREEN='\e[32m'
-fi
-
-PACMAN='pacman --noconfirm --needed -Syu'
+. ../../lib.sh
 
 if [ "$EUID" != 0 ]; then
     echo 'This script needs root privileges.'
@@ -27,7 +20,7 @@ case "$(lspci -k | grep -A3 -E '(VGA|3D)')" in
         pkg=("${pkg[@]}" xf86-video-nouveau)
         ;;
 esac
-$PACMAN "${pkg[@]}"
+pac "${pkg[@]}"
 
 cp -rfT rootfs /
 
