@@ -1,7 +1,7 @@
 #!/bin/bash -ex
 cd "$(dirname "$0")"
 . ./config
-. ./lib.sh
+. ./src/lib.sh
 
 (
     case "$swapfile" in
