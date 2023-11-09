@@ -16,7 +16,7 @@ locales=(
 lang="${locales[0]}"
 
 pkg=(
-    base-devel
+    base{,-devel}
     efibootmgr
     fuse
     fzf
