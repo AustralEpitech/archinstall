@@ -1,11 +1,15 @@
 # User Variables
 # Comment to disable
 
+set -a
+
 pkg=(
     autorandr
     i3lock xss-lock
     picom
     xorg-{server,xinit,xrandr,xsetroot} xclip
 )
+
+set +a
 
 # vim: ft=sh

@@ -1,3 +1,8 @@
+# User Variables
+# Comment to disable
+
+set -a
+
 pkg=(
     alacritty
     dunst
@@ -8,7 +13,7 @@ pkg=(
     keepassxc
     materia-{gtk-theme,kde} papirus-icon-theme gtk-engine-murrine
     mpv
-    noto-fonts{,-cjk,-emoji} ttf-{dejavu,liberation}
+    noto-fonts{,-cjk,-emoji} ttf-{dejavu,liberation} otf-font-awesome
     pcmanfm
     pipewire{,-pulse,-jack} wireplumber pavucontrol playerctl
     polkit-gnome
@@ -25,5 +30,7 @@ flatpakpkg=(
     org.mozilla.Thunderbird
     org.mozilla.firefox
 )
+
+set +a
 
 # vim: ft=sh

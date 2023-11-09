@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -a
 
 if [ -t 1 ]; then
@@ -9,3 +11,5 @@ fi
 function pac() {
     yes | pacman --needed -Syu "$@"
 }
+
+set +a

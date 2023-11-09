@@ -9,7 +9,7 @@ if [ "$EUID" != 0 ]; then
 fi
 
 pac "${pkg[@]}" flatpak
-flatpak install "${flatpakpkg[@]}"
+flatpak install -y "${flatpakpkg[@]}"
 
 case "$(lspci -k | grep -E '(VGA|3D)')" in
     *AMD*)

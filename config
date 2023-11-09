@@ -1,6 +1,10 @@
 # User Variables
 # Comment to disable
 
+set -a
+
+swapfile=auto # true|MB
+
 username=ange
 user_passwd=ange
 root_passwd=root
@@ -45,5 +49,7 @@ pkg=(
 laptop_pkg=(
     tlp
 )
+
+set +a
 
 # vim: ft=sh
