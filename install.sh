@@ -5,6 +5,7 @@ cd "$(dirname "$0")"
 
 # System config
 cp -rfT rootfs/ /
+pac "${pkg[@]}"
 ln -sf "/usr/share/zoneinfo/$tz" /etc/localtime
 hwclock --systohc
 for l in "${locales[@]}"; do
@@ -22,7 +23,7 @@ esac
 sed -i '/^HOOKS=(/s/filesystems/encrypt filesystems/' /etc/mkinitcpio.conf
 
 # Packages
-pac "${pkg[@]}" "$cpu-ucode"
+pac "$cpu-ucode"
 systemctl enable     \
     NetworkManager   \
     ip6tables        \
