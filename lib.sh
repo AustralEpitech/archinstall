@@ -7,5 +7,5 @@ if [ -t 1 ]; then
 fi
 
 function pac() {
-    yes | pacman --needed -Syu
+    yes | pacman --needed -Syu "$@"
 }
