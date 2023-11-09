@@ -24,7 +24,7 @@ pkg=(
     gnu-netcat
     htop
     jq
-    linux{,-lts,-firmware}
+    linux{,-lts,-firmware} mkinitcpio
     lsof
     man-{db,pages} tldr
     neofetch
