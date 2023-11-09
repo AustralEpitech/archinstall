@@ -3,7 +3,7 @@
 
 set -a
 
-swapfile=auto # true|MB
+swapfile=auto # auto|MB
 
 username=ange
 user_passwd=ange
