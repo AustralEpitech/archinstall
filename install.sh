@@ -30,7 +30,4 @@ pacstrap -K --needed /mnt/ "${pkg[@]}"
 cp -rfT rootfs/ /mnt/
 genfstab -U /mnt/ >> /mnt/etc/fstab
 
-arch-chroot /mnt/ bash -ex \
-    < config               \
-    < src/lib.sh           \
-    < src/install.sh
+cat config src/lib.sh src/install.sh | arch-chroot /mnt/ bash -ex

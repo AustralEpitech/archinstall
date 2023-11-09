@@ -2,5 +2,4 @@
 cd "$(dirname "$0")"
 . ./config
 
-arch-chroot /mnt/ su "$username" -c bash -ex \
-    < src/dotfiles.sh
+cat src/dotfiles.sh | arch-chroot /mnt/ su "$username" -c bash -ex
