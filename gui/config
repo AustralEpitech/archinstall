@@ -1,8 +1,6 @@
 # User Variables
 # Comment to disable
 
-set -a
-
 pkg=(
     alacritty
     dunst
@@ -30,7 +28,5 @@ flatpakpkg=(
     org.mozilla.Thunderbird
     org.mozilla.firefox
 )
-
-set +a
 
 # vim: ft=sh

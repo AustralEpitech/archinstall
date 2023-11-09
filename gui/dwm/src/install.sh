@@ -14,8 +14,6 @@ case "$(lspci -k | grep -A3 -E '(VGA|3D)')" in
 esac
 pac "${pkg[@]}"
 
-cp -rfT rootfs /
-
 git clone https://git.maby.dev/ange/suckless.git /tmp/suckless/
 cd /tmp/suckless
 ./update.sh
