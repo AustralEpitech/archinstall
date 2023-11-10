@@ -59,6 +59,3 @@ initrd  /$cpu-ucode.img
 options $options rw
 EOF
 done
-
-echo -e "${BOLD}${GREEN}DONE. You can install a desktop environment \
-(see README.md). Then, you can Ctrl+D, umount -R /mnt/ and reboot${NORMAL}"

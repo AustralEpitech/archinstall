@@ -1,21 +1,19 @@
 #!/bin/bash -ex
 
+pac "${pkg[@]}"
+
 # drivers
 case "$(lspci -k | grep -A3 -E '(VGA|3D)')" in
     *amdgpu*)
-        pkg=("${pkg[@]}" xf86-video-amdgpu)
+        pac xf86-video-amdgpu
         ;;
     *i915*)
-        pkg=("${pkg[@]}" xf86-video-intel)
+        pac xf86-video-intel
         ;;
     *nouveau*)
-        pkg=("${pkg[@]}" xf86-video-nouveau)
+        pac xf86-video-nouveau
+        ;;
+    *nvidia*)
+        pac nvidia{,-utils}
         ;;
 esac
-pac "${pkg[@]}"
-
-git clone https://git.maby.dev/ange/suckless.git /tmp/suckless/
-cd /tmp/suckless
-./update.sh
-
-echo -e "${BOLD}${GREEN}DONE. I recommend you to install dotfiles.sh to get a fully functioning config.${NORMAL}"

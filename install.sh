@@ -8,8 +8,8 @@ cd "$(dirname "$0")"
         [0-9]*)
             size="$swapfile"
             ;;
-        true)
-            ram="$(free -h | awk '$1 == "Mem:" {print $2}')"
+        auto)
+            ram="$(free -m | awk '$1 == "Mem:" {print $2}')"
             size="$(python -c "from math import ceil,log; print(2**ceil((log($ram)/log(2))))")"
             ;;
         *)
@@ -31,3 +31,5 @@ cp -rfT rootfs/ /mnt/
 genfstab -U /mnt/ >> /mnt/etc/fstab
 
 cat config src/lib.sh src/install.sh | arch-chroot /mnt/ bash -ex
+
+echo -e "${BOLD}${GREEN}DONE${NORMAL}"

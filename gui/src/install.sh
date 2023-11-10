@@ -1,6 +1,6 @@
 #!/bin/bash -ex
 
-pac "${pkg[@]}" flatpak
+pac "${pkg[@]}" flatpak xdg-desktop-portal-gtk
 flatpak install -y "${flatpakpkg[@]}"
 
 case "$(lspci -k | grep -E '(VGA|3D)')" in
@@ -18,9 +18,7 @@ case "$(lspci -k | grep -E '(VGA|3D)')" in
         ;;
 esac
 
-sed -i "s/^MODULES=(/MODULES=($modules/" /etc/mkinitcpio.conf
+sed -i "/^MODULES=(/s/)/$modules)/" /etc/mkinitcpio.conf
 mkinitcpio -P
 
 xdg-user-dirs-update
-
-echo -e "${BOLD}${GREEN}GPU drivers install finished.${NORMAL}"
