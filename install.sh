@@ -24,7 +24,6 @@ cd "$(dirname "$0")"
 )
 
 cp -f rootfs/etc/pacman.conf /etc/pacman.conf
-systemctl restart reflector
 pacman -Sy
 pacstrap -K /mnt/ --needed "${pkg[@]}"
 cp -rfT rootfs/ /mnt/
