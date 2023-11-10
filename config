@@ -30,7 +30,7 @@ pkg=(
     lsof
     man-{db,pages} tldr
     neofetch
-    neovim{,-lspconfig,-nvim-treesitter} python-pynvim ripgrep tree-sitter-cli
+    neovim{,-lspconfig} python-pynvim ripgrep tree-sitter-cli
     networkmanager iptables-nft wireguard-tools
     p7zip unrar
     podman{,-compose}
