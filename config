@@ -1,6 +1,7 @@
 # User Variables
 # Comment to disable
 
+#swapfile=2048
 swapfile=auto # auto|MB
 
 username=ange
@@ -23,15 +24,15 @@ pkg=(
     fuse
     fzf
     git
-    gnu-netcat
     htop
     jq
-    linux{,-lts,-firmware} mkinitcpio
+    linux{,-lts,-firmware} mkinitcpio {amd,intel}-ucode
     lsof
     man-{db,pages} tldr
     neofetch
     neovim{,-lspconfig} python-pynvim ripgrep tree-sitter-cli
-    networkmanager iptables-nft wireguard-tools
+    networkmanager iptables-nft wireguard-tools bind gnu-netcat
+    opendoas
     p7zip unrar
     podman{,-compose}
     ranger
@@ -39,13 +40,10 @@ pkg=(
     renameutils perl-rename
     rsync
     terminus-font awesome-terminal-fonts
+    tlp
     tree
     udisks2
     zsh
-)
-
-laptop_pkg=(
-    tlp
 )
 
 # vim: ft=sh

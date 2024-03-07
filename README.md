@@ -7,7 +7,7 @@ more!
 Follow the [Pre-installation](https://wiki.archlinux.org/title/Installation_guide#Pre-installation).
 Once you chrooted in the system, clone this script
 ```bash
-git clone https://git.maby.dev/ange/archinstall /tmp/ai && cd $_
+git clone https://git.maby.dev/ange/archinstall /tmp/ai && cd "$_"
 ```
 
 To install the base system, run:
@@ -16,13 +16,13 @@ $EDITOR config
 ./base.sh
 ```
 
-If you want to install a gui
+If you want a desktop install:
 ```bash
-$EDITOR ./gui/config
-./gui/install.sh
+$EDITOR ./desktop/config
+./desktop/install.sh
 
-$EDITOR ./gui/$GUI/config
-./gui/$GUI/install.sh
+$EDITOR ./desktop/$WM/config
+./desktop/$WM/install.sh
 ```
 
 For the dotfiles, run the script as the newly created user:

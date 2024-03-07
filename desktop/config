@@ -8,13 +8,14 @@ pkg=(
     flameshot
     gammastep
     imagemagick
-    keepassxc
     materia-{gtk-theme,kde} papirus-icon-theme gtk-engine-murrine
+    monero
     mpv
     noto-fonts{,-cjk,-emoji} ttf-{dejavu,liberation} otf-font-awesome
+    pass{,-otp}
     pcmanfm
-    pipewire{,-pulse,-jack} wireplumber pavucontrol playerctl
     polkit-gnome
+    wireplumber pipewire-pulse pavucontrol playerctl
     xdg-user-dirs
     yt-dlp
     zenity
@@ -23,9 +24,7 @@ pkg=(
 flatpakpkg=(
     com.valvesoftware.Steam
     net.lutris.Lutris
-    org.getmonero.Monero
     org.gimp.GIMP
-    org.mozilla.Thunderbird
     org.mozilla.firefox
 )
 

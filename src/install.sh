@@ -10,36 +10,23 @@ locale-gen
 echo "LANG=$lang.UTF-8" > /etc/locale.conf
 echo "$hostname" > /etc/hostname
 
-# Drivers
-case "$(lscpu | grep Vendor)" in
-    *AuthenticAMD*) cpu=amd   ;;
-    *GenuineIntel*) cpu=intel ;;
-esac
 sed -i '/^HOOKS=(/s/filesystems/encrypt filesystems/' /etc/mkinitcpio.conf
 
 # Services
-pac "$cpu-ucode"
-systemctl enable     \
-    NetworkManager   \
-    ip6tables        \
-    iptables         \
-    podman.socket    \
-    reflector.timer  \
+systemctl enable \
+    NetworkManager \
+    ip6tables \
+    iptables \
+    reflector.timer \
     systemd-resolved \
-    systemd-timesyncd
-
-if ls -d /sys/class/power_supply/BAT*/ > /dev/null 2>&1; then
-    pac "${laptop_pkg[@]}"
-    systemctl enable tlp
-fi
+    systemd-timesyncd \
+    tlp
 
 # Users
 echo "root:$root_passwd" | chpasswd
 useradd -mG wheel,video "$username" -s "${default_shell-/bin/bash}"
 echo "$username:$user_passwd" | chpasswd
 su "$username" -c 'xdg-user-dirs-update' 2> /dev/null || true
-
-sed -i '/^#\s*%wheel\s\+ALL=(ALL:ALL)\s\+ALL/s/^#\s*//' /etc/sudoers
 
 # Bootloader
 bootctl install
@@ -55,7 +42,6 @@ options="${options}root=$root"
 
 for f in /boot/loader/entries/*.conf; do
     cat << EOF >> "$f"
-initrd  /$cpu-ucode.img
 options $options rw
 EOF
 done

@@ -5,7 +5,7 @@ pkg=(
     autorandr
     i3lock xss-lock
     picom
-    xorg-{server,xhost,xinit,xrandr,xsetroot} xclip
+    xorg-{server,xinit,xrandr,xsetroot} xclip
 )
 
 # vim: ft=sh

@@ -11,9 +11,7 @@ case "$(lspci -k | grep -A3 -E '(VGA|3D)')" in
         pac xf86-video-intel
         ;;
     *nouveau*)
-        pac xf86-video-nouveau
-        ;;
-    *nvidia*)
-        pac nvidia{,-utils}
+        # https://bugs.freedesktop.org/show_bug.cgi?id=94844#c3
+        #pac xf86-video-nouveau
         ;;
 esac
