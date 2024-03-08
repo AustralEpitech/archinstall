@@ -13,6 +13,7 @@ pkg=(
     mpv
     noto-fonts{,-cjk,-emoji} ttf-{dejavu,liberation} otf-font-awesome
     pass{,-otp}
+    qemu-{base,audio-pipewire,hw-display-virtio-{gpu,vga},ui-gtk} dnsmasq
     pcmanfm
     polkit-gnome
     wireplumber pipewire-pulse pavucontrol playerctl
