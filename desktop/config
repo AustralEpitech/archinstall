@@ -2,21 +2,22 @@
 # Comment to disable
 
 pkg=(
+    aerc w3m
     alacritty
-    dunst
+    dunst libnotify
     feh
-    flameshot
     gammastep
-    imagemagick
-    materia-{gtk-theme,kde} papirus-icon-theme gtk-engine-murrine
+    graphicsmagick
+    materia-gtk-theme papirus-icon-theme
     monero
     mpv
+    newsraft
     noto-fonts{,-cjk,-emoji} ttf-{dejavu,liberation} otf-font-awesome
     pass{,-otp}
-    qemu-{base,audio-pipewire,hw-display-virtio-{gpu,vga},ui-gtk} dnsmasq
-    pcmanfm
+    pcmanfm-gtk3
     polkit-gnome
-    wireplumber pipewire-pulse pavucontrol playerctl
+    qemu-{base,audio-pipewire,hw-display-virtio-{gpu,vga},ui-gtk} dnsmasq
+    wireplumber pavucontrol playerctl
     xdg-user-dirs
     yt-dlp
     zenity

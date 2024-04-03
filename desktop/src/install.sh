@@ -3,22 +3,15 @@
 pac "${pkg[@]}" flatpak xdg-desktop-portal-gtk mesa
 flatpak install -y "${flatpakpkg[@]}"
 
-case "$(lspci -k | grep -E '(VGA|3D)')" in
-    *AMD*)
-        pac vulkan-radeon
-        modules=amdgpu
-        ;;
-    *Intel*)
-        pac vulkan-intel
-        modules=i915
-        ;;
-    *NVIDIA*)
-        #pac vulkan-nvk
-        modules=nouveau
-        ;;
-esac
+if lsusb | grep -q Bluetooth; then
+    pac bluez bluez-utils
+fi
 
-sed -i "/^MODULES=(/s/)/$modules)/" /etc/mkinitcpio.conf
-mkinitcpio -P
+case "$(lspci | grep 'VGA\|3D')" in
+    *AMD*)    pac vulkan-radeon ;;
+    *Intel*)  pac vulkan-intel ;;
+    *NVIDIA*) pac vulkan-nouveau ;;
+    *) ;;
+esac
 
 xdg-user-dirs-update

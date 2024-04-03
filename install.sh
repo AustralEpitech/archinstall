@@ -9,7 +9,7 @@ cd "$(dirname "$0")"
             size="$swapfile"
             ;;
         auto)
-            ram="$(free -m | awk '$1 == "Mem:" {print $2}')"
+            ram="$(free -m | awk '/^Mem:/ {print $2}')"
             size="$(python -c "from math import ceil,log; print(2**ceil((log($ram)/log(2))))")"
             ;;
         *)
@@ -23,12 +23,10 @@ cd "$(dirname "$0")"
     swapon /mnt/swapfile
 )
 
-cp -f rootfs/etc/pacman.conf /etc/pacman.conf
-pacman -Sy
-pacstrap -K /mnt/ --needed "${pkg[@]}"
+pacstrap -C rootfs/etc/pacman.conf -K /mnt/ --needed "${pkg[@]}"
 cp -rfT rootfs/ /mnt/
 genfstab -U /mnt/ >> /mnt/etc/fstab
 
 cat config src/lib.sh src/install.sh | arch-chroot /mnt/ bash -ex
 
-echo -e "${BOLD}${GREEN}DONE${NORMAL}"
+echo "${BOLD}${GREEN}DONE${NORMAL}"

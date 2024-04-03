@@ -19,30 +19,26 @@ locales=(
 lang="${locales[0]}"
 
 pkg=(
-    base{,-devel}
+    base{,-devel} man-{db,pages} tldr
     efibootmgr
-    fuse
     fzf
     git
     htop
     jq
-    linux{,-lts,-firmware} mkinitcpio {amd,intel}-ucode
-    lsof
-    man-{db,pages} tldr
+    lf
+    linux{,-lts,-firmware} mkinitcpio
     neofetch
-    neovim{,-lspconfig} python-pynvim ripgrep tree-sitter-cli
+    neovim{,-lspconfig} python-pynvim ripgrep tree-sitter-cli bash-language-server pyright python-black
     networkmanager iptables-nft wireguard-tools bind gnu-netcat
     opendoas
     p7zip unrar
     podman{,-compose}
-    ranger
     reflector
     renameutils perl-rename
     rsync
     terminus-font awesome-terminal-fonts
     tlp
-    tree
-    udisks2
+    udisks2 dosfstools exfatprogs
     zsh
 )
 

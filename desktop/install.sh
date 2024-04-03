@@ -4,4 +4,4 @@ cd "$(dirname "$0")"
 
 cat config ../src/lib.sh src/install.sh | arch-chroot /mnt/ bash -ex
 
-echo -e "${BOLD}${GREEN}DONE${NORMAL}"
+echo "${BOLD}${GREEN}DONE${NORMAL}"

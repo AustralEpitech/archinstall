@@ -1,11 +1,11 @@
 # archinstall
 My personal Arch install script. It automates from step 2 of ArchWiki's
-[Installation guide](https://wiki.archlinux.org/title/Installation_guide) and
-more!
+[Installation guide](https://wiki.archlinux.org/title/Installation_guide#Installation)
+and more!
 
-## How to
+## HOW-TO
 Follow the [Pre-installation](https://wiki.archlinux.org/title/Installation_guide#Pre-installation).
-Once you chrooted in the system, clone this script
+Once you mounted the partitions, clone this script
 ```bash
 git clone https://git.maby.dev/ange/archinstall /tmp/ai && cd "$_"
 ```
@@ -27,5 +27,5 @@ $EDITOR ./desktop/$WM/config
 
 For the dotfiles, run the script as the newly created user:
 ```bash
-su $user -c ./dotfiles.sh
+su - $user -c ./dotfiles.sh
 ```
