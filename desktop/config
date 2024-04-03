@@ -17,7 +17,7 @@ pkg=(
     pcmanfm-gtk3
     polkit-gnome
     qemu-{base,audio-pipewire,hw-display-virtio-{gpu,vga},ui-gtk} dnsmasq
-    wireplumber pavucontrol playerctl
+    wireplumber pipewire{,-pulse,-jack} pavucontrol playerctl
     xdg-user-dirs
     yt-dlp
     zenity
