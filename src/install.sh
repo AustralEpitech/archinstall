@@ -14,9 +14,10 @@ sed -i '/^HOOKS=(/s/filesystems/encrypt filesystems/' /etc/mkinitcpio.conf
 
 # Services
 systemctl enable \
-    NetworkManager.service \
+    iwd.service \
     nftables.service \
     reflector.timer \
+    systemd-networkd.service \
     systemd-resolved.service \
     systemd-timesyncd.service \
     tlp.service

@@ -3,10 +3,6 @@
 pac "${pkg[@]}" flatpak xdg-desktop-portal-gtk mesa
 flatpak install -y "${flatpakpkg[@]}"
 
-if lsusb | grep -q Bluetooth; then
-    pac bluez bluez-utils
-fi
-
 case "$(lspci | grep 'VGA\|3D')" in
     *AMD*)    pac vulkan-radeon ;;
     *Intel*)  pac vulkan-intel ;;

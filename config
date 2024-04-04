@@ -24,13 +24,14 @@ pkg=(
     fzf
     git
     htop
+    iwd iptables-nft wireguard-tools bind gnu-netcat
     jq
     lf
     linux{,-lts,-firmware} mkinitcpio
     neofetch
     neovim{,-lspconfig} python-pynvim ripgrep tree-sitter-cli bash-language-server pyright python-black
-    networkmanager iptables-nft wireguard-tools bind gnu-netcat
     opendoas
+    openssh
     p7zip unrar
     podman{,-compose}
     reflector

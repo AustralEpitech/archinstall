@@ -4,6 +4,7 @@
 pkg=(
     aerc w3m
     alacritty
+    bluez{,-utils}
     dunst libnotify
     feh
     gammastep
@@ -11,9 +12,9 @@ pkg=(
     materia-gtk-theme papirus-icon-theme
     monero
     mpv
-    newsraft
+    #newsraft
     noto-fonts{,-cjk,-emoji} ttf-{dejavu,liberation} otf-font-awesome
-    pass{,-otp}
+    pass{,-otp} gcr
     pcmanfm-gtk3
     polkit-gnome
     qemu-{base,audio-pipewire,hw-display-virtio-{gpu,vga},ui-gtk} dnsmasq
