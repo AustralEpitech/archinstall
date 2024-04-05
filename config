@@ -21,7 +21,6 @@ lang="${locales[0]}"
 pkg=(
     base{,-devel} man-{db,pages} tldr
     efibootmgr
-    fzf
     git
     htop
     iwd iptables-nft wireguard-tools bind gnu-netcat
@@ -29,7 +28,7 @@ pkg=(
     lf
     linux{,-lts,-firmware} mkinitcpio
     neofetch
-    neovim{,-lspconfig} python-pynvim ripgrep tree-sitter-cli bash-language-server pyright python-black
+    neovim{,-lspconfig} python-{pynvim,black} ripgrep bash-language-server pyright
     opendoas
     openssh
     p7zip unrar
@@ -40,7 +39,7 @@ pkg=(
     terminus-font awesome-terminal-fonts
     tlp
     udisks2 dosfstools exfatprogs
-    zsh
+    zsh fzf
 )
 
 # vim: ft=sh
