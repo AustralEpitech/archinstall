@@ -1,5 +1,5 @@
 #!/bin/bash -ex
-cd "$(dirname "$0")"
+cd -- "$(dirname "$0")"
 . ./config
 . ./src/lib.sh
 

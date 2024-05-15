@@ -1,5 +1,5 @@
 #!/bin/bash -e
-cd "$(dirname "$0")"
+cd -- "$(dirname "$0")"
 . ../../src/lib.sh
 
 cp -rfT rootfs/ /mnt/

@@ -8,7 +8,7 @@ for l in "${locales[@]}"; do
 done
 locale-gen
 echo "LANG=$lang.UTF-8" > /etc/locale.conf
-echo "$hostname" > /etc/hostname
+echo - "$hostname" > /etc/hostname
 
 sed -i '/^HOOKS=(/s/filesystems/encrypt filesystems/' /etc/mkinitcpio.conf
 
@@ -25,12 +25,12 @@ systemctl enable \
 # Users
 echo "root:$root_passwd" | chpasswd
 useradd -mG wheel,video "$username" -s "${default_shell-/bin/bash}"
-echo "$username:$user_passwd" | chpasswd
+echo - "$username:$user_passwd" | chpasswd
 
 # ucode
 case "$(lscpu)" in
-    *Intel*) pac amd-ucode ;;
-    *AMD*)   pac intel-ucode ;;
+    *AMD*)   pac amd-ucode ;;
+    *Intel*) pac intel-ucode ;;
     *) ;;
 esac
 

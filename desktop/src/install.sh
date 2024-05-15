@@ -1,6 +1,6 @@
 #!/bin/bash -ex
 
-pac "${pkg[@]}" flatpak xdg-desktop-portal-gtk mesa
+pac "${pkg[@]}" flatpak xdg-desktop-portal-gtk
 flatpak install -y "${flatpakpkg[@]}"
 
 case "$(lspci | grep 'VGA\|3D')" in

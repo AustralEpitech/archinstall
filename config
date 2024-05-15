@@ -1,5 +1,6 @@
 # User Variables
 # Comment to disable
+# shellcheck disable=SC2034
 
 #swapfile=2048
 swapfile=auto # auto|MB
@@ -12,22 +13,22 @@ default_shell=/bin/zsh
 
 hostname="$username-pc"
 
-tz='Europe/Paris'
+tz=Europe/Paris
 locales=(
-    'en_US'
+    en_US
 )
 lang="${locales[0]}"
 
 pkg=(
     base{,-devel} man-{db,pages} tldr
     efibootmgr
+    fastfetch
     git
-    htop
+    gvfs{,-gphoto2,-mtp} dosfstools exfatprogs
     iwd iptables-nft wireguard-tools bind gnu-netcat
     jq
     lf
     linux{,-lts,-firmware} mkinitcpio
-    neofetch
     neovim{,-lspconfig} python-{pynvim,black} ripgrep bash-language-server pyright
     opendoas
     openssh
@@ -38,7 +39,6 @@ pkg=(
     rsync
     terminus-font awesome-terminal-fonts
     tlp
-    udisks2 dosfstools exfatprogs
     zsh fzf
 )
 

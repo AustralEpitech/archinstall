@@ -17,3 +17,6 @@ case "$(lsmod)" in
     *)
         ;;
 esac
+
+git clone --depth 1 https://git.maby.dev/ange/.dotfiles /tmp/dotfiles
+/tmp/dotfiles/.config/suckless/update.sh

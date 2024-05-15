@@ -1,14 +1,14 @@
 # User Variables
 # Comment to disable
+# shellcheck disable=SC2034
 
 pkg=(
     aerc w3m
-    alacritty
     bluez{,-utils}
     dunst libnotify
     feh
     gammastep
-    graphicsmagick
+    graphicsmagick ghostscript
     materia-gtk-theme papirus-icon-theme
     monero
     mpv
@@ -16,11 +16,12 @@ pkg=(
     noto-fonts{,-cjk,-emoji} ttf-{dejavu,liberation} otf-font-awesome
     pass{,-otp} gcr
     pcmanfm-gtk3
+    pipewire{,-pulse,-jack} pavucontrol playerctl
     polkit-gnome
-    qemu-{base,audio-pipewire,hw-display-virtio-{gpu,vga},ui-gtk} dnsmasq
-    wireplumber pipewire{,-pulse,-jack} pavucontrol playerctl
+    qemu-{base,audio-pipewire,hw-usb-host,hw-display-virtio-{gpu,vga},ui-gtk} dnsmasq
     xdg-user-dirs
     yt-dlp
+    zathura{,-pdf-poppler}
     zenity
 )
 
@@ -28,6 +29,7 @@ flatpakpkg=(
     com.valvesoftware.Steam
     net.lutris.Lutris
     org.gimp.GIMP
+    org.gtk.Gtk3theme.Materia-dark
     org.mozilla.firefox
 )
 

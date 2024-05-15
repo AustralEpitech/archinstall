@@ -7,7 +7,7 @@ and more!
 Follow the [Pre-installation](https://wiki.archlinux.org/title/Installation_guide#Pre-installation).
 Once you mounted the partitions, clone this script
 ```bash
-git clone https://git.maby.dev/ange/archinstall /tmp/ai && cd "$_"
+git clone https://git.maby.dev/ange/archinstall /tmp/ai && cd -- "$_"
 ```
 
 To install the base system, run:
