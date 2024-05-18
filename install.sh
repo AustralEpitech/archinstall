@@ -1,8 +1,9 @@
-#!/bin/bash -ex
+#!/bin/bash
 cd -- "$(dirname "$0")"
 . ./config
 . ./src/lib.sh
 
+set -x
 (
     case "$swapfile" in
         [0-9]*)
@@ -24,9 +25,10 @@ cd -- "$(dirname "$0")"
 )
 
 pacstrap -C rootfs/etc/pacman.conf -K /mnt/ --needed "${pkg[@]}"
-cp -rfT rootfs/ /mnt/
+cp -rfTv rootfs/ /mnt/
 genfstab -U /mnt/ >> /mnt/etc/fstab
+swapoff /mnt/swapfile
 
-cat config src/lib.sh src/install.sh | arch-chroot /mnt/ bash -ex
+cat config src/lib.sh src/install.sh | arch-chroot /mnt/ bash
 
 echo "${BOLD}${GREEN}DONE${NORMAL}"

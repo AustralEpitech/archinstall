@@ -1,4 +1,6 @@
-#!/bin/bash -ex
+#!/bin/bash
+
+set -x
 
 pac "${pkg[@]}" flatpak xdg-desktop-portal-gtk
 flatpak install -y "${flatpakpkg[@]}"

@@ -1,4 +1,6 @@
-#!/bin/bash -ex
+#!/bin/bash
+
+set -x
 
 # System config
 ln -sf "/usr/share/zoneinfo/$tz" /etc/localtime

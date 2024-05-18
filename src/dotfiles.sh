@@ -1,8 +1,10 @@
-#!/bin/bash -ex
+#!/bin/bash
 cd
 
 config=(git --git-dir "$HOME/.dotfiles" --work-tree "$HOME")
 repo='https://git.maby.dev/ange/.dotfiles.git'
+
+set -x
 
 git clone --bare "$repo" "$HOME/.dotfiles"
 
