@@ -11,3 +11,4 @@ git clone --bare "$repo" "$HOME/.dotfiles"
 "${config[@]}" checkout -f
 "${config[@]}" submodule update --init --recursive --remote
 "${config[@]}" config status.showUntrackedFiles no
+"${config[@]}" remote set-url origin git@git.maby.dev:ange/.dotfiles.git
