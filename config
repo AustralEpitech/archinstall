@@ -33,7 +33,7 @@ pkg=(
     opendoas
     openssh
     p7zip unrar
-    podman{,-compose} aardvark-dns
+    podman docker-compose aardvark-dns
     reflector
     renameutils perl-rename
     rsync

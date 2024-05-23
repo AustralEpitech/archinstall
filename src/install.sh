@@ -24,6 +24,8 @@ systemctl enable \
     systemd-timesyncd.service \
     tlp.service
 
+sudo -u "$username" systemctl enable podman.socket
+
 # Users
 echo "root:$root_passwd" | chpasswd
 useradd -mG wheel,video "$username" -s "${default_shell-/bin/bash}"
