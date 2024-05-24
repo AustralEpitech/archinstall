@@ -1,14 +1,14 @@
-# User Variables
-# Comment to disable
-# shellcheck disable=SC2034
+#!/bin/bash
+#shellcheck disable=SC2154
 
-pkg=(
+pkg+=(
     aerc w3m
     bluez{,-utils}
     dunst libnotify
     feh
     gammastep
     graphicsmagick ghostscript
+    gvfs{,-gphoto2,-mtp}
     materia-gtk-theme papirus-icon-theme
     monero
     mpv
@@ -25,7 +25,7 @@ pkg=(
     zenity
 )
 
-flatpakpkg=(
+flatpakpkg+=(
     com.valvesoftware.Steam org.freedesktop.Platform.VulkanLayer.gamescope
     net.lutris.Lutris
     org.gimp.GIMP
@@ -33,4 +33,13 @@ flatpakpkg=(
     org.mozilla.firefox
 )
 
-# vim: ft=sh
+case "$(lspci | grep 'VGA\|3D')" in
+    *AMD*)    pkg+=(vulkan-radeon) ;;
+    *Intel*)  pkg+=(vulkan-intel) ;;
+    *NVIDIA*) pkg+=(vulkan-nouveau) ;;
+    *) ;;
+esac
+
+./modules/base.sh
+
+xdg-user-dirs-update

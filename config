@@ -2,14 +2,18 @@
 # Comment to disable
 # shellcheck disable=SC2034
 
-#swapfile=2048
-swapfile=auto # auto|MB
+install_type=dwm # base|desktop|dwm
+
+disk=/dev/nvme0n1
+disk_passwd=cryptroot
+
+swapfile=1024 # MiB
 
 username=ange
 user_passwd=ange
 root_passwd=root
 
-default_shell=/bin/zsh
+shell=zsh
 
 hostname="$username-pc"
 
@@ -20,15 +24,14 @@ locales=(
 lang="${locales[0]}"
 
 pkg=(
-    base{,-devel} man-{db,pages} tldr
+    base-devel man-{db,pages} tldr
     efibootmgr
     fastfetch
     git
-    gvfs{,-gphoto2,-mtp} dosfstools exfatprogs
+    dosfstools exfatprogs
     iwd iptables-nft wireguard-tools bind gnu-netcat
     jq
     lf
-    linux{,-lts,-firmware} mkinitcpio
     neovim{,-lspconfig} python-{pynvim,black} ripgrep bash-language-server pyright
     opendoas
     openssh
@@ -38,8 +41,7 @@ pkg=(
     renameutils perl-rename
     rsync
     terminus-font awesome-terminal-fonts
-    tlp
-    zsh fzf
+    fzf
 )
 
 # vim: ft=sh
