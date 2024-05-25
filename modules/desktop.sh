@@ -34,10 +34,10 @@ printf '%s\n' \
         >> flatpak.txt
 
 case "$(lspci | grep 'VGA\|3D')" in
-       *AMD*) echo vulkan-radeon >> pkglist.txt ;;
-     *Intel*) echo vulkan-intel >> pkglist.txt ;;
+    *AMD*)    echo vulkan-radeon  >> pkglist.txt ;;
+    *Intel*)  echo vulkan-intel   >> pkglist.txt ;;
     *NVIDIA*) echo vulkan-nouveau >> pkglist.txt ;;
-           *) ;;
+    *) ;;
 esac
 
 find ./modules/ -name '*.sh.desktop' -exec rename '.desktop' '' '{}' +

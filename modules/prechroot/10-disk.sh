@@ -10,7 +10,7 @@ boot=/dev/disk/by-partlabel/boot
 root=/dev/disk/by-partlabel/root
 
 [ -n "$disk_passwd" ] && {
-    echo -n - "$disk_passwd" | cryptsetup luksFormat "$root" -
+    echo -n "$disk_passwd" | cryptsetup luksFormat "$root" -
     cryptsetup open "$root" cryptroot - <<< "$disk_passwd"
     root=/dev/mapper/cryptroot
 }

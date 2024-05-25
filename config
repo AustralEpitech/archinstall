@@ -10,8 +10,8 @@ disk_passwd=cryptroot
 swapfile=1024 # MiB
 
 username=ange
-user_passwd=ange
-root_passwd=root
+userpasswd=ange
+rootpasswd=root
 
 shell=zsh
 

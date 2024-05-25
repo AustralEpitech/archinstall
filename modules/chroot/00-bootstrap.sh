@@ -11,4 +11,4 @@ locale-gen
 
 echo "LANG=$lang.UTF-8" > /etc/locale.conf
 
-echo - "$hostname" > /etc/hostname
+echo "$hostname" > /etc/hostname
