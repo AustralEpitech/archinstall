@@ -4,5 +4,5 @@
 shell="$(sed -n "/$shell/{p;q}" /etc/shells)"
 useradd -mG wheel,video "$username" -s "${shell:-/bin/bash}"
 
-echo "root:$rootpasswd" | chpasswd
+echo "root:$rootpasswd"      | chpasswd
 echo "$username:$userpasswd" | chpasswd

@@ -6,7 +6,6 @@ GREEN=$'\e[32m'
 NORMAL=$'\e[0m'
 
 echo "${BOLD}${GREEN}DONE. Umount? [Y/n]${NORMAL} " && read -r ANS
-
 case "$ANS" in
     ''|[Yy]*) ;;
     *) exit ;;

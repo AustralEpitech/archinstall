@@ -31,7 +31,7 @@ printf '%s\n' \
     org.gimp.GIMP \
     org.gtk.Gtk3theme.Materia-dark \
     org.mozilla.firefox \
-        >> flatpak.txt
+        >> modules/chroot/flatpak.txt
 
 case "$(lspci | grep 'VGA\|3D')" in
     *AMD*)    echo vulkan-radeon  >> pkglist.txt ;;
