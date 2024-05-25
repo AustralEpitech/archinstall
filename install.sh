@@ -1,5 +1,7 @@
 #!/bin/bash
 
+exec &> >(tee logs.out)
+
 set -a
 . ./config
 set +a
