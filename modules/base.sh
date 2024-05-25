@@ -1,7 +1,7 @@
 #!/bin/bash
 #shellcheck disable=SC2154
 
-cp ./modules/chroot/ /mnt/
+cp -r ./modules/chroot/ /mnt/
 for i in *.sh; do
     bash -x "$i"
 done

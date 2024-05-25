@@ -1,4 +1,4 @@
 #!/bin/bash
 
 git clone --depth 1 https://git.maby.dev/ange/.dotfiles.git /tmp/dotfiles
-/dotfiles/.config/suckless/update.sh
+/tmp/dotfiles/.config/suckless/update.sh
