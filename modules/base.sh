@@ -12,7 +12,7 @@ cp -r ./modules/chroot/ /mnt/
     done
 
     for i in ./chroot/user/*.sh; do
-        arch-chroot /mnt/ sudo -u "$username" bash -x "/$i"
+        arch-chroot /mnt/ su "$username" -c bash -x "/$i"
     done
 )
 
