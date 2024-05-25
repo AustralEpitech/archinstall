@@ -26,8 +26,7 @@ printf '%s\n' \
         >> pkglist.txt
 
 printf '%s\n' \
-    com.valvesoftware.Steam org.freedesktop.Platform.VulkanLayer.gamescope \
-    net.lutris.Lutris \
+    com.valvesoftware.Steam \
     org.gimp.GIMP \
     org.gtk.Gtk3theme.Materia-dark \
     org.mozilla.firefox \
