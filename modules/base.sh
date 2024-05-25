@@ -1,12 +1,11 @@
 #!/bin/bash
 #shellcheck disable=SC2154
 
-cp -r ./modules/chroot/ /mnt/
-
 for i in ./modules/prechroot/*.sh; do
     bash -x "$i"
 done
 
+cp -r ./modules/chroot/ /mnt/
 (cd ./modules/ || exit
     for i in ./chroot/*.sh; do
         arch-chroot /mnt/ bash -x "/$i"
