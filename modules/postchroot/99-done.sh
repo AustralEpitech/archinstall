@@ -12,5 +12,4 @@ case "$ANS" in
     *) exit ;;
 esac
 
-awk '/mnt/ {print $1}' < /proc/swaps | xargs swapoff
 umount -R /mnt/
