@@ -22,7 +22,5 @@ case "$(lsmod)" in
         ;;
 esac
 
+find ./modules/ -name '*.sh.dwm' -exec rename '.dwm' '' '{}' +
 bash ./modules/desktop.sh
-
-git clone --depth 1 https://git.maby.dev/ange/.dotfiles.git dotfiles
-arch-chroot /mnt/ bash -x ./dotfiles/.config/suckless/update.sh

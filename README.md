@@ -12,3 +12,8 @@ cd archinstall
 $EDITOR config
 ./install.sh
 ```
+
+## Extend
+If you want to extend this script, simply place your own commands in a `.sh`
+file in `modules/{prechroot,chroot,chroot/user}` respectively depending on when
+you need it to be executed.

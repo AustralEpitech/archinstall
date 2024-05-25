@@ -40,6 +40,5 @@ case "$(lspci | grep 'VGA\|3D')" in
     *) ;;
 esac
 
+find ./modules/ -name '*.sh.desktop' -exec rename '.desktop' '' '{}' +
 bash ./modules/base.sh
-
-xdg-user-dirs-update
