@@ -1,22 +1,22 @@
 #!/bin/bash
 #shellcheck disable=SC2154
 
-pkg+=(
-    autorandr
-    i3lock xss-lock
-    picom
-    xorg-{server,xinit,xrandr,xsetroot} xclip xdotool
-)
+printf '%s\n' \
+    autorandr \
+    i3lock xss-lock \
+    picom \
+    xorg-{server,xinit,xrandr,xsetroot} xclip xdotool \
+        >> pkglist.txt
 
 case "$(lsmod)" in
-    *amdgpu*) pkg+=(xf86-video-amdgpu) ;;
+    *amdgpu*) echo xf86-video-amdgpu >> pkglist.txt ;;
     *i915*)
         # https://wiki.archlinux.org/title/Intel_graphics#Installation
-        #pkg+=(xf86-video-intel)
+        #echo xf86-video-intel >> pkglist.txt
         ;;
     *nouveau*)
         # https://bugs.freedesktop.org/show_bug.cgi?id=94844#c3
-        #pkg+=(xf86-video-nouveau)
+        #echo xf86-video-nouveau >> pkglist.txt
         ;;
     *)
         ;;

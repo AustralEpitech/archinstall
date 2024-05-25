@@ -18,10 +18,8 @@ shell=zsh
 hostname="$username-pc"
 
 tz=Europe/Paris
-locales=(
-    en_US
-)
-lang="${locales[0]}"
+locales=en_US # e.g. 'en_US,fr_FR'
+lang=en_US
 
 pkg=(
     base-devel man-{db,pages} tldr

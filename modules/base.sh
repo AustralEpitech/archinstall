@@ -2,7 +2,8 @@
 #shellcheck disable=SC2154
 
 cp -r ./modules/chroot/ /mnt/
-for i in *.sh; do
+
+for i in ./modules/prechroot/*.sh; do
     bash -x "$i"
 done
 

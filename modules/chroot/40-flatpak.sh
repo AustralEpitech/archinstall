@@ -1,4 +1,4 @@
 #!/bin/bash
 #shellcheck disable=SC2154
 
-[ -n "$flatpak" ] && flatpak install -y "${flatpak[@]}"
+[ -s flatpak.txt ] && xargs flatpak install -y < flatpak.txt
