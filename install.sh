@@ -4,4 +4,5 @@ set -a
 . ./config
 set +a
 
-./modules/"$install_type".sh
+# cp chroot?
+bash ./modules/"$install_type".sh

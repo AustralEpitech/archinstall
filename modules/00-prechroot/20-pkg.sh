@@ -13,3 +13,5 @@ esac
 
 pacstrap -C rootfs/etc/pacman.conf -K /mnt/ \
     base linux{,-lts,-firmware} "$shell" "${pkg[@]}"
+
+find /mnt/etc -name '*.pacnew' -delete

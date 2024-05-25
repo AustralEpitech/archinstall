@@ -22,7 +22,7 @@ case "$(lsmod)" in
         ;;
 esac
 
-./modules/desktop.sh
+bash ./modules/desktop.sh
 
 git clone --depth 1 https://git.maby.dev/ange/.dotfiles.git dotfiles
-arch-chroot ./dotfiles/.config/suckless/update.sh
+arch-chroot /mnt/ bash -x ./dotfiles/.config/suckless/update.sh

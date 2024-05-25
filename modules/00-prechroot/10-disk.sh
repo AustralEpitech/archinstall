@@ -10,15 +10,17 @@ boot=/dev/disk/by-partlabel/boot
 root=/dev/disk/by-partlabel/root
 
 [ -n "$disk_passwd" ] && {
-    echo "$disk_passwd" | cryptsetup luksFormat "$root" -
-    echo "$disk_passwd" | cryptsetup open "$root" cryptroot -
+    echo -n "$disk_passwd" | cryptsetup luksFormat "$root" -
+    cryptsetup open "$root" cryptroot - <<< "$disk_passwd"
     root=/dev/mapper/cryptroot
 }
 
-mkfs.vfat -F32 "$boot"
-mkfs.ext4 "$root"
+sleep 2 # wait for /dev/disk/by-partlabel/ to be populated
+
+mkfs.fat -F32 "$boot"
+mkfs.ext4 -F "$root"
 mount "$root" /mnt/
-mount -mo fmask=0077,dmask=0077 /dev/disk/by-partlabel/boot /mnt/boot/
+mount -m -o fmask=0077,dmask=0077 /dev/disk/by-partlabel/boot /mnt/boot/
 
 [ -n "$swapfile" ] && {
     dd if=/dev/zero of=/mnt/swapfile bs=1M count="$swapfile" status=progress

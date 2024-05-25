@@ -40,6 +40,6 @@ case "$(lspci | grep 'VGA\|3D')" in
     *) ;;
 esac
 
-./modules/base.sh
+bash ./modules/base.sh
 
 xdg-user-dirs-update
