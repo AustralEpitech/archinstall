@@ -13,20 +13,21 @@ username=ange
 userpasswd=ange
 rootpasswd=root
 
-shell=zsh
+shell=bash
 
 hostname="$username-pc"
 
 tz=Europe/Paris
-locales=en_US # e.g. 'en_US,fr_FR'
+locales=en_US # 'en_US,fr_FR'
 lang=en_US
 
 pkg=(
     base-devel man-{db,pages} tldr
+    bash-completion fzf
+    dosfstools exfatprogs
     efibootmgr
     fastfetch
     git
-    dosfstools exfatprogs
     iwd iptables-nft wireguard-tools bind gnu-netcat
     jq
     lf
@@ -34,12 +35,11 @@ pkg=(
     opendoas
     openssh
     p7zip unrar
-    podman docker-compose aardvark-dns
+    podman docker-compose
     reflector
     renameutils perl-rename
     rsync
     terminus-font awesome-terminal-fonts
-    fzf
 )
 
 # vim: ft=sh

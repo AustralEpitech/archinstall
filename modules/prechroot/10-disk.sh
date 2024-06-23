@@ -30,5 +30,6 @@ mount -m -o fmask=0077,dmask=0077 /dev/disk/by-partlabel/boot /mnt/boot/
 }
 
 cp -rfTv rootfs/ /mnt/
+
 genfstab -U /mnt/ >> /mnt/etc/fstab
 swapoff /mnt/swapfile
