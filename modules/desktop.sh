@@ -14,7 +14,7 @@ printf '%s\n' \
     materia-gtk-theme papirus-icon-theme \
     monero \
     mpv \
-    noto-fonts{,-cjk,-emoji} ttf-{dejavu,liberation} otf-font-awesome \
+    noto-fonts{,-cjk,-emoji} otf-font-awesome \
     pass{,-otp} gcr \
     pcmanfm-gtk3 \
     pipewire{,-pulse,-jack} pavucontrol playerctl \
@@ -34,9 +34,9 @@ printf '%s\n' \
         >> modules/chroot/flatpak.txt
 
 case "$(lspci | grep 'VGA\|3D')" in
-    *AMD*)    echo vulkan-radeon  >> pkglist.txt ;;
-    *Intel*)  echo vulkan-intel   >> pkglist.txt ;;
-    *NVIDIA*) echo vulkan-nouveau >> pkglist.txt ;;
+    *AMD*)    echo vulkan-radeon libva-mesa-driver mesa-vdpau >> pkglist.txt ;;
+    *Intel*)  echo vulkan-intel intel-media-driver >> pkglist.txt ;;
+    *NVIDIA*) echo vulkan-nouveau libva-mesa-driver mesa-vdpau >> pkglist.txt ;;
     *) ;;
 esac
 
