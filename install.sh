@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo 'If you want Secure Boot support, you need to put your system in Setup Mode'
+read -r
+
 exec &> >(tee logs.out)
 
 set -a

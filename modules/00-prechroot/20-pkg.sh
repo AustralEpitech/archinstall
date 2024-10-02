@@ -13,6 +13,6 @@ esac
 [ -d /sys/class/power_supply/BAT0 ] && echo tlp >> pkglist.txt
 
 pacstrap -C rootfs/etc/pacman.conf -K /mnt \
-    base linux{,-lts,-firmware} "$shell" - < pkglist.txt
+    base linux{,-lts,-firmware} "$shell" efibootmgr sbctl - < pkglist.txt
 
 find /mnt/etc/ -name '*.pacnew' -delete

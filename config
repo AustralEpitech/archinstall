@@ -1,5 +1,4 @@
 # User Variables
-# Comment to disable
 # shellcheck disable=SC2034
 
 install_type=dwm # base|desktop|dwm
@@ -7,25 +6,24 @@ install_type=dwm # base|desktop|dwm
 disk=/dev/nvme0n1
 disk_passwd=cryptroot
 
-swapfile=1024 # MiB
+swapfile=1024 # MiB, Comment to disable
 
 username=ange
 userpasswd=ange
-rootpasswd=root
+rootpasswd=root # Comment to disable
 
 shell=bash
 
 hostname="$username-pc"
 
 tz=Europe/Paris
-locales=en_US # 'en_US,fr_FR'
+locales=en_US # en_US,fr_FR
 lang=en_US
 
 pkg=(
     base-devel man-{db,pages} tldr
     bash-completion fzf
     dosfstools exfatprogs
-    efibootmgr
     fastfetch
     git
     iwd iptables-nft wireguard-tools bind gnu-netcat

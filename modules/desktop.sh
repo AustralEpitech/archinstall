@@ -6,7 +6,6 @@ printf '%s\n' \
     aerc w3m \
     alacritty \
     bluez{,-utils} \
-    dunst libnotify \
     feh \
     gammastep \
     graphicsmagick ghostscript \
