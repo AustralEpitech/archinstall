@@ -8,8 +8,8 @@ printf '%s\n' \
     bluez{,-utils} \
     feh \
     gammastep \
-    graphicsmagick ghostscript \
     gvfs{,-gphoto2,-mtp} \
+    imagemagick \
     materia-gtk-theme papirus-icon-theme \
     monero \
     mpv \
@@ -21,7 +21,7 @@ printf '%s\n' \
     qemu-{base,audio-pipewire,hw-usb-host,hw-display-virtio-{gpu,vga},ui-gtk} dnsmasq \
     xdg-user-dirs \
     yt-dlp \
-    zathura{,-pdf-poppler} \
+    zathura{,-pdf-poppler} ghostscript \
     zenity \
         >> pkglist.txt
 
@@ -33,9 +33,9 @@ printf '%s\n' \
         >> modules/chroot/flatpak.txt
 
 case "$(lspci | grep 'VGA\|3D')" in
-    *AMD*)    echo vulkan-radeon libva-mesa-driver mesa-vdpau >> pkglist.txt ;;
+    *AMD*)    echo vulkan-radeon mesa >> pkglist.txt ;;
     *Intel*)  echo vulkan-intel intel-media-driver >> pkglist.txt ;;
-    *NVIDIA*) echo vulkan-nouveau libva-mesa-driver mesa-vdpau >> pkglist.txt ;;
+    *NVIDIA*) echo vulkan-nouveau mesa >> pkglist.txt ;;
     *) ;;
 esac
 
