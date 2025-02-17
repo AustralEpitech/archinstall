@@ -16,23 +16,25 @@ shell=bash
 
 hostname="$username-pc"
 
-tz=Europe/Paris
+tz=UTC        # Europe/Paris
 locales=en_US # en_US,fr_FR
 lang=en_US
 
 pkg=(
+    7zip unrar
     base-devel man-{db,pages} tldr
-    bash-completion fzf
+    bash-completion
+    detox
     dosfstools exfatprogs
     fastfetch
+    fzf
     git
-    iwd iptables-nft wireguard-tools bind gnu-netcat
+    iwd iptables-nft wireguard-tools gnu-netcat
     jq
     lf
     neovim{,-lspconfig} python-{pynvim,black} ripgrep bash-language-server pyright
     opendoas
     openssh
-    p7zip unrar
     podman docker-compose
     reflector
     renameutils perl-rename

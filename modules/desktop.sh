@@ -8,8 +8,7 @@ printf '%s\n' \
     bluez{,-utils} \
     feh \
     gammastep \
-    gvfs{,-gphoto2,-mtp} \
-    imagemagick \
+    imagemagick ghostscript \
     materia-gtk-theme papirus-icon-theme \
     monero \
     mpv \
@@ -19,9 +18,10 @@ printf '%s\n' \
     pipewire{,-pulse,-jack} pavucontrol playerctl \
     polkit-gnome \
     qemu-{base,audio-pipewire,hw-usb-host,hw-display-virtio-{gpu,vga},ui-gtk} dnsmasq \
+    udisks2 \
     xdg-user-dirs \
     yt-dlp \
-    zathura{,-pdf-poppler} ghostscript \
+    zathura{,-pdf-poppler} \
     zenity \
         >> pkglist.txt
 

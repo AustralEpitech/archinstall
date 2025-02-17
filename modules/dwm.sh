@@ -2,7 +2,6 @@
 #shellcheck disable=SC2154
 
 printf '%s\n' \
-    autorandr \
     i3lock xss-lock \
     picom \
     xorg-{server,xinit,xrandr,xsetroot} xclip xdotool \

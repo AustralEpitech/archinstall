@@ -17,6 +17,6 @@ sbctl enroll-keys
 
 for l in arch{,-lts-fallback}; do
     efibootmgr --create --unicode --label "$l" \
-        --disk "$boot" --part 1 --loader "\EFI\Linux\arch-linux$l.efi"
+        --disk "$boot" --part 1 --loader "\\EFI\\Linux\\arch-linux$l.efi"
 done
 echo "$options" > /etc/cmdline.d/root.conf

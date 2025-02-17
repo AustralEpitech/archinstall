@@ -24,7 +24,6 @@ mount "$root" /mnt/
 cat <<EOF > /mnt/etc/fstab
 UUID=$(blkid "$root" -ovalue -sUUID)	/	ext4	rw,relatime	0 1
 UUID=$(blkid "$esp" -ovalue -sUUID)	/efi	vfat	rw,fmask=0077,dmask=0077,noauto	0 2
-
 EOF
 
 [ -n "$swapfile" ] && {
