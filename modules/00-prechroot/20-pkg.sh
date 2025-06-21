@@ -7,10 +7,9 @@ case "$(lscpu)" in
     *) ;;
 esac
 
-[ -s modules/chroot/flatpak.txt ] \
-    && printf '%s\n' flatpak xdg-desktop-portal-gtk >> pkglist.txt
-
-[ -d /sys/class/power_supply/BAT0 ] && echo tlp >> pkglist.txt
+if [ -d /sys/class/power_supply/BAT0 ]; then
+    echo tlp >> pkglist.txt
+fi
 
 echo "$shell" >> pkglist.txt
 pacstrap -C rootfs/etc/pacman.conf -K /mnt \

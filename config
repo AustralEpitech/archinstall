@@ -6,11 +6,11 @@ install_type=dwm # base|desktop|dwm
 disk=/dev/nvme0n1
 disk_passwd=cryptroot
 
-swapfile=1024 # MiB, Comment to disable
+swapfile=1024 # MiB, comment to disable
 
 username=ange
 userpasswd=ange
-rootpasswd=root # Comment to disable
+rootpasswd=root # comment to disable
 
 shell=bash
 
@@ -21,18 +21,19 @@ locales=en_US # en_US,fr_FR
 lang=en_US
 
 pkg=(
-    7zip unrar
-    base-devel man-{db,pages} tldr
+    7zip
     bash-completion
     detox
     dosfstools exfatprogs
     fastfetch
     fzf
     git
+    inotify-tools
     iwd iptables-nft wireguard-tools gnu-netcat
     jq
     lf
-    neovim{,-lspconfig} python-{pynvim,black} ripgrep bash-language-server pyright
+    make man-{db,pages} patch texinfo tldr
+    neovim-lspconfig python-{pynvim,black} ripgrep bash-language-server pyright
     opendoas
     openssh
     podman docker-compose

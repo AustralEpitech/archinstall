@@ -5,10 +5,10 @@ root="$(findmnt -n -osource /)"
 boot="$(lsblk -ls -oname /dev/disk/by-partlabel/boot | tail -n1)"
 
 cryptdev="$(cryptsetup status "$root" | awk '/device/ {print $2}')"
-[ -n "$cryptdev" ] && {
+if [ -n "$cryptdev" ]; then
     uuid="$(blkid | grep "$cryptdev" | awk '{print $2}')"
     options="cryptdevice=$uuid:${root##*/} "
-}
+fi
 
 options="${options}root=$root rw"
 
