@@ -1,8 +1,7 @@
 #!/bin/bash
-#shellcheck disable=SC2154
 
 root="$(findmnt -n -osource /)"
-boot="$(lsblk -ls -oname /dev/disk/by-partlabel/boot | tail -n1)"
+esp="$(lsblk -ls -opath /dev/disk/by-partlabel/esp | tail -n1)"
 
 cryptdev="$(cryptsetup status "$root" | awk '/device/ {print $2}')"
 if [ -n "$cryptdev" ]; then
@@ -15,8 +14,8 @@ options="${options}root=$root rw"
 sbctl create-keys
 sbctl enroll-keys
 
-for l in arch{,-lts-fallback}; do
+for l in arch-linux{,-lts-fallback}; do
     efibootmgr --create --unicode --label "$l" \
-        --disk "$boot" --part 1 --loader "\\EFI\\Linux\\arch-linux$l.efi"
+        --disk "$esp" --part 1 --loader "\\EFI\\Linux\\$l.efi"
 done
 echo "$options" > /etc/cmdline.d/root.conf

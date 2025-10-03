@@ -7,7 +7,7 @@ and run the `install.sh` script.
 
 ```bash
 pacman -Sy git
-git clone https://git.maby.dev/ange/archinstall.git
+git clone https://git.gmoker.com/ange/archinstall.git
 cd archinstall
 $EDITOR config
 ./install.sh
@@ -15,5 +15,4 @@ $EDITOR config
 
 ## Extend
 If you want to extend this script, simply place your own commands in a `.sh`
-file in `modules/{prechroot,chroot,chroot/user}` respectively depending on when
-you need it to be executed.
+file in `modules/**/` depending on when you need it to be executed.

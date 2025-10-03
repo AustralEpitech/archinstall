@@ -1,5 +1,4 @@
 #!/bin/bash
-#shellcheck disable=SC2154
 
 config=(git --git-dir "$HOME/.dotfiles" --work-tree "$HOME")
 repo='https://git.gmoker.com/ange/dotfiles.git'

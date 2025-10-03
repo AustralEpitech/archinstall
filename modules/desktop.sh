@@ -1,5 +1,4 @@
 #!/bin/bash
-#shellcheck disable=SC2154
 
 #newsraft
 printf '%s\n' \
@@ -15,20 +14,18 @@ printf '%s\n' \
     mpv \
     noto-fonts{,-cjk,-emoji} otf-font-awesome \
     pass-otp gcr \
-    pipewire{-pulse,-jack} playerctl \
-    polkit-gnome \
+    pipewire-jack playerctl rtkit \
     qemu-{base,audio-pipewire,hw-usb-host,hw-display-virtio-{gpu,vga},ui-gtk} dnsmasq usbutils \
     udisks2 \
     xdg-utils xdg-user-dirs \
     yt-dlp \
     zathura-pdf-poppler \
-    zenity \
         >> pkglist.txt
 
 case "$(lspci | grep 'VGA\|3D')" in
-    *AMD*)    echo vulkan-radeon mesa >> pkglist.txt ;;
-    *Intel*)  echo vulkan-intel intel-media-driver >> pkglist.txt ;;
-    *NVIDIA*) echo vulkan-nouveau mesa >> pkglist.txt ;;
+    *AMD*)    printf '%s\n' vulkan-radeon mesa >> pkglist.txt ;;
+    *Intel*)  printf '%s\n' vulkan-intel intel-media-driver >> pkglist.txt ;;
+    *NVIDIA*) printf '%s\n' vulkan-nouveau mesa >> pkglist.txt ;;
     *) ;;
 esac
 

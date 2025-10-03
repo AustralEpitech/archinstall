@@ -1,5 +1,4 @@
 #!/bin/bash
-#shellcheck disable=SC2154
 
 systemctl enable iwd.service
 systemctl enable nftables.service

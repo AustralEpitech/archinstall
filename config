@@ -16,31 +16,30 @@ shell=bash
 
 hostname="$username-pc"
 
-tz=UTC        # Europe/Paris
-locales=en_US # en_US,fr_FR
-lang=en_US
+tz=UTC # Europe/Paris
+locales=(en_US)
+lang=C
 
 pkg=(
-    7zip
     bash-completion
     detox
     dosfstools exfatprogs
-    fastfetch
     fzf
+    gcc make fakeroot man-{db,pages} patch tldr
     git
     inotify-tools
-    iwd iptables-nft wireguard-tools gnu-netcat
+    iproute2 iptables-nft iputils systemd-resolvconf wireguard-tools
+    iwd qrencode
     jq
-    lf
-    make man-{db,pages} patch texinfo tldr
     neovim-lspconfig python-{pynvim,black} ripgrep bash-language-server pyright
-    opendoas
     openssh
     podman docker-compose
     reflector
     renameutils perl-rename
-    rsync
+    systemd-sysvinit psmisc
+    tar rsync 7zip
     terminus-font awesome-terminal-fonts
+    which
 )
 
 # vim: ft=sh
