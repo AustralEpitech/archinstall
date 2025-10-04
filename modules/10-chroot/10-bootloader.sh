@@ -13,6 +13,7 @@ options="${options}root=$root rw"
 
 sbctl create-keys
 sbctl enroll-keys --yolo
+mkinitcpio -P
 
 for l in arch-linux{,-lts-fallback}; do
     efibootmgr --create --unicode --label "$l" \

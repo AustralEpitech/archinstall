@@ -4,20 +4,20 @@
 install_type=dwm # base|desktop|dwm
 
 disk=/dev/nvme0n1
-disk_passwd=cryptroot
+disk_passwd='cryptroot'
 
 swapfile=1024 # MiB, comment to disable
 
 username=ange
-userpasswd=ange
-rootpasswd=root # comment to disable
+userpasswd='ange'
+rootpasswd='root' # comment to disable
 
 shell=bash
 
 hostname="$username-pc"
 
 tz=UTC # Europe/Paris
-locales=(en_US)
+locales='en_US' # en_US|fr_FR
 lang=C
 
 pkg=(
