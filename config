@@ -17,7 +17,7 @@ shell=bash
 hostname="$username-pc"
 
 tz=UTC # Europe/Paris
-locales='en_US' # en_US|fr_FR
+locales='en_US' # 'en_US|fr_FR' list separated with pipes
 lang=C
 
 pkg=(
