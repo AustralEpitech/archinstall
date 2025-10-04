@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pacman -Sy sbctl --noconfirm
+pacman -Sy --noconfirm --needed sbctl
 
 if ! sbctl status | grep -q '^Setup Mode:.*Enabled$'; then
     printf '%s\n' \

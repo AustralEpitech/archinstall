@@ -33,10 +33,10 @@ pkg=(
     jq
     neovim-lspconfig python-{pynvim,black} ripgrep bash-language-server pyright
     openssh
-    podman docker-compose
+    podman docker-compose crun
     reflector
     renameutils perl-rename
-    systemd-sysvinit psmisc
+    systemd-sysvcompat psmisc
     tar rsync 7zip
     terminus-font awesome-terminal-fonts
     which
