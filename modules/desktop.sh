@@ -15,7 +15,7 @@ printf '%s\n' \
     noto-fonts{,-cjk,-emoji} otf-font-awesome \
     pass-otp gcr \
     pipewire-jack playerctl rtkit \
-    qemu-{base,audio-pipewire,hw-usb-host,hw-display-virtio-{gpu,vga},ui-gtk} dnsmasq usbutils \
+    qemu-{base,audio-pipewire,hw-usb-host,qemu-hw-display-qxl,ui-gtk} dnsmasq usbutils \
     udisks2 \
     xdg-utils xdg-user-dirs \
     yt-dlp \
