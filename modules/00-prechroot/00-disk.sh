@@ -29,7 +29,7 @@ mkdir -p /mnt/etc/ /mnt/efi/EFI/Linux/
 
 cat <<EOF > /mnt/etc/fstab
 UUID=$(blkid "$root" -ovalue -sUUID)	/	ext4	rw,relatime	0 1
-UUID=$(blkid "$esp" -ovalue -sUUID)	/efi	vfat	rw,fmask=0077,dmask=0077	0 2
+UUID=$(blkid "$esp" -ovalue -sUUID)	/efi	vfat	rw,umask=0077	0 2
 EOF
 
 if [ -n "$swapfile" ]; then

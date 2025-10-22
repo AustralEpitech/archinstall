@@ -22,12 +22,5 @@ printf '%s\n' \
     zathura-pdf-poppler \
         >> pkglist.txt
 
-case "$(lspci | grep 'VGA\|3D')" in
-    *AMD*)    printf '%s\n' vulkan-radeon mesa >> pkglist.txt ;;
-    *Intel*)  printf '%s\n' vulkan-intel intel-media-driver >> pkglist.txt ;;
-    *NVIDIA*) printf '%s\n' vulkan-nouveau mesa >> pkglist.txt ;;
-    *) ;;
-esac
-
 find ./modules/ -name '*.sh.desktop' -exec rename '.desktop' '' '{}' +
 bash ./modules/base.sh

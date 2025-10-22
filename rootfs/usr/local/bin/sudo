@@ -1,0 +1,3 @@
+#!/bin/sh
+
+run0 --background= "$@"
