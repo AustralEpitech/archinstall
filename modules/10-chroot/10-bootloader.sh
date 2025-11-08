@@ -9,7 +9,7 @@ if [ -n "$cryptdev" ]; then
     options="cryptdevice=$uuid:${root##*/} "
 fi
 
-options="${options}root=$root rw"
+options="${options}root=$root init=/lib/systemd/systemd rw"
 
 sbctl create-keys
 sbctl enroll-keys --yolo

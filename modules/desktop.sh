@@ -13,7 +13,7 @@ printf '%s\n' \
     monero \
     mpv \
     noto-fonts{,-cjk,-emoji} otf-font-awesome \
-    pass-otp gcr \
+    pass-otp \
     pipewire-jack playerctl rtkit \
     qemu-{base,audio-pipewire,hw-usb-host,qemu-hw-display-qxl,ui-gtk} dnsmasq usbutils \
     udisks2 \
