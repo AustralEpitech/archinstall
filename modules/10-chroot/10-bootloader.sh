@@ -1,15 +1,16 @@
 #!/bin/bash
 
 root="$(findmnt -n -osource /)"
-esp="$(lsblk -ls -opath /dev/disk/by-partlabel/esp | tail -n1)"
+esp="$(findmnt -n -osource /)"
 
-cryptdev="$(cryptsetup status "$root" | awk '/device/ {print $2}')"
+{
+cryptdev="$(cryptsetup status "$root" | awk '/device/{print $2}')"
 if [ -n "$cryptdev" ]; then
-    uuid="$(blkid | grep "$cryptdev" | awk '{print $2}')"
-    options="cryptdevice=$uuid:${root##*/} "
+    echo "rd.luks.name=$(lsblk -ndo uuid "$cryptdev")=$(basename "$root") "
 fi
 
-options="${options}root=$root init=/lib/systemd/systemd rw"
+echo "root=$root init=/lib/systemd/systemd rw"
+} > /etc/cmdline.d/root.conf
 
 sbctl create-keys
 sbctl enroll-keys --yolo
@@ -19,4 +20,3 @@ for l in arch-linux{,-lts-fallback}; do
     efibootmgr --create --unicode --label "$l" \
         --disk "$esp" --part 1 --loader "\\EFI\\Linux\\$l.efi"
 done
-echo "$options" > /etc/cmdline.d/root.conf
