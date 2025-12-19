@@ -5,7 +5,7 @@ My personal Arch install script.
 Install git, clone the script, edit the `config` file to match your preferences
 and run the `install.sh` script.
 
-```bash
+```sh
 pacman -Sy git
 git clone https://git.gmoker.com/ange/archinstall.git
 cd archinstall

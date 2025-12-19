@@ -1,23 +1,19 @@
-#!/bin/bash
+#!/bin/sh
 
-pacman -Sy --noconfirm --needed sbctl
+pacman -C rootfs/etc/pacman.conf -Sy --noconfirm --needed sbctl
 
 if ! sbctl status | grep -q '^Setup Mode:.*Enabled$'; then
     printf '%s\n' \
         'If you want Secure Boot support, you need to put your system in Setup Mode' \
         'See https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot'
-    read -rp "Reboot into the firmware setup interface? [Y/n] " ANS
-    if [[ "${ANS,}" =~ ^$|^y ]]; then
+    printf 'Reboot into the firmware setup interface? [Y/n] '
+    read -r ANS
+    if echo "$ANS" | grep -qiP '^(y|$)'; then
         systemctl reboot --firmware-setup
     fi
 fi
 
-exec &> >(tee logs.out)
-
-set -a
-. ./config
-set +a
-
-printf '%s\n' "${pkg[@]}" > pkglist.txt
-
-bash ./modules/"$install_type".sh
+{
+    . ./config
+    sh ./modules/"$install_type".sh
+} 2>&1 | tee logs.out

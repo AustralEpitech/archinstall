@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 root="$(findmnt -n -osource /)"
 esp="$(findmnt -n -osource /)"
@@ -16,7 +16,7 @@ sbctl create-keys
 sbctl enroll-keys --yolo
 mkinitcpio -P
 
-for l in arch-linux{,-lts-fallback}; do
+for l in arch-linux arch-linux-lts-fallback; do
     efibootmgr --create --unicode --label "$l" \
         --disk "$esp" --part 1 --loader "\\EFI\\Linux\\$l.efi"
 done

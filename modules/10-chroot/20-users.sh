@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #shellcheck disable=SC2154
 
 shell="$(sed -n "/$shell/{p;q}" /etc/shells)"
@@ -8,3 +8,12 @@ if [ -n "$rootpasswd" ]; then
     echo "root:$rootpasswd" | chpasswd
 fi
 echo "$username:$userpasswd" | chpasswd
+
+if [ "$autologin" = 1 ]; then
+    systemctl edit --drop-in=autologin.conf --stdin getty@tty1.service <<EOF
+[Service]
+Type=simple
+ExecStart=
+ExecStart=-/sbin/agetty -a $username - \${TERM}
+EOF
+fi

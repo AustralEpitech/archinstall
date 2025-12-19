@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #shellcheck disable=SC2154
 
 sgdisk -Z \
@@ -10,8 +10,8 @@ esp=/dev/disk/by-partlabel/esp
 root=/dev/disk/by-partlabel/root
 
 if [ -n "$disk_passwd" ]; then
-    echo -n "$disk_passwd" | cryptsetup luksFormat "$root" -
-    cryptsetup open "$root" root - <<< "$disk_passwd"
+    printf '%s' "$disk_passwd" | cryptsetup luksFormat "$root" -
+    printf '%s' "$disk_passwd" | cryptsetup open "$root" root -
     root=/dev/mapper/root
 fi
 

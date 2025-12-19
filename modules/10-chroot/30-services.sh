@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 systemctl enable iwd.service
 systemctl enable nftables.service

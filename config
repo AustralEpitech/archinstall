@@ -1,45 +1,21 @@
-# User Variables
-# shellcheck disable=SC2034
-
-install_type=dwm # base|desktop|dwm
-
-disk=/dev/nvme0n1
-disk_passwd='cryptroot'
-
-swapfile=1024 # MiB, comment to disable
-
-username=ange
-userpasswd='ange'
-rootpasswd='root' # comment to disable
-
-shell=bash
-
-hostname="$username-pc"
-
-tz=UTC # Europe/Paris
-locales='en_US' # 'en_US|fr_FR'
-lang=C
-
-pkg=(
-    bash-completion
-    detox
-    dosfstools exfatprogs
-    fzf
-    gcc make fakeroot man-{db,pages} patch tldr
-    git
-    inotify-tools
-    iproute2 iptables-nft iputils systemd-resolvconf wireguard-tools
-    iwd qrencode
-    jq
-    neovim-lspconfig python-{pynvim,black} ripgrep bash-language-server pyright
-    openssh
-    podman docker-compose crun
-    psmisc
-    reflector
-    renameutils perl-rename
-    tar rsync 7zip
-    terminus-font awesome-terminal-fonts
-    which
-)
-
 # vim: ft=sh
+
+export install_type=river # base|desktop|river
+
+export disk=/dev/nvme0n1
+export disk_passwd='cryptroot' # comment to disable
+export autologin=1 # comment to disable
+
+export swapfile=1024 # MiB, comment to disable
+
+export username=ange
+export userpasswd='ange'
+export rootpasswd='root' # comment to disable
+
+export shell=bash
+
+export hostname="$username-pc"
+
+export tz=UTC # Europe/Paris
+export locales='en_US' # 'en_US|fr_FR'
+export lang=C

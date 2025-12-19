@@ -1,26 +1,24 @@
-#!/bin/bash
+#!/bin/sh
 
 #newsraft
 printf '%s\n' \
     aerc w3m \
     alacritty \
-    bluez{,-utils} \
+    bluez bluez-utils \
     feh \
-    firefox{,-ublock-origin} \
+    firefox firefox-ublock-origin firefox-noscript \
     gammastep \
     imagemagick ghostscript \
-    materia-gtk-theme \
     monero \
     mpv \
-    noto-fonts{,-cjk,-emoji} otf-font-awesome \
-    pass-otp \
+    noto-fonts noto-fonts-cjk noto-fonts-emoji otf-font-awesome \
+    pass pass-otp \
     pipewire-jack playerctl rtkit \
-    qemu-{base,audio-pipewire,hw-usb-host,qemu-hw-display-qxl,ui-gtk} dnsmasq usbutils \
-    udisks2 \
+    qemu-base qemu-hw-usb-host qemu-hw-display-qxl qemu-ui-gtk dnsmasq usbutils \
     xdg-utils xdg-user-dirs \
     yt-dlp \
     zathura-pdf-poppler \
         >> pkglist.txt
 
 find ./modules/ -name '*.sh.desktop' -exec rename '.desktop' '' '{}' +
-bash ./modules/base.sh
+sh ./modules/base.sh

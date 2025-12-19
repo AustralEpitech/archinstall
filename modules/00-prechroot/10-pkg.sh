@@ -1,15 +1,15 @@
-#!/bin/bash
+#!/bin/sh
 #shellcheck disable=SC2154
 
 {
-if ls /sys/class/power_supply/BAT* &> /dev/null; then
+if ls /sys/class/power_supply/BAT* > /dev/null 2>&1; then
     printf '%s\n' tlp
 fi
 
 printf '%s\n' \
     archlinux-keyring pacman \
     efibootmgr sbctl \
-    linux{,-lts,-firmware} \
+    linux linux-lts linux-firmware \
     mkinitcpio
 
 case "$(lscpu)" in

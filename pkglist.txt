@@ -1,0 +1,17 @@
+awesome-terminal-fonts terminus-font
+bash-completion
+detox
+dosfstools exfatprogs
+fzf
+gcc fakeroot make man-db man-pages patch pkgconf tldr which yq
+git
+inotify-tools
+iproute2 iptables-nft iputils systemd-resolvconf wireguard-tools
+iwd qrencode
+neovim-lspconfig python-pynvim python-black ripgrep bash-language-server pyright tree-sitter-bash tree-sitter-python
+openssh
+podman podman-compose crun
+psmisc
+reflector
+renameutils perl-rename
+tar rsync 7zip

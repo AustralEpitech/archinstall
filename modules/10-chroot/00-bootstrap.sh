@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #shellcheck disable=SC2154
 
 ln -sf "/usr/share/zoneinfo/$tz" /etc/localtime
