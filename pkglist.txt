@@ -1,17 +1,61 @@
-awesome-terminal-fonts terminus-font
+awesome-terminal-fonts
+terminus-font
+
 bash-completion
+
 detox
-dosfstools exfatprogs
+
+dosfstools
+exfatprogs
+
 fzf
-gcc fakeroot make man-db man-pages patch pkgconf tldr which yq
+
+fakeroot
+gcc
+make
+man-db
+man-pages
+patch
+pkgconf
+tldr
+which
+yq
+
 git
+
 inotify-tools
-iproute2 iptables-nft iputils systemd-resolvconf wireguard-tools
-iwd qrencode
-neovim-lspconfig python-pynvim python-black ripgrep bash-language-server pyright tree-sitter-bash tree-sitter-python
+
+iproute2
+iptables-nft
+iputils
+systemd-resolvconf
+wireguard-tools
+
+iwd
+qrencode
+
+bash-language-server
+neovim-lspconfig
+pyright
+python-black
+python-pynvim
+ripgrep
+tree-sitter-bash
+tree-sitter-python
+
 openssh
-podman podman-compose crun
+
+crun
+podman
+podman-compose
+
 psmisc
+
 reflector
-renameutils perl-rename
-tar rsync 7zip
+
+perl-rename
+renameutils
+
+7zip
+rsync
+tar

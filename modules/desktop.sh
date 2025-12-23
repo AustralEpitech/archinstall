@@ -3,11 +3,9 @@
 #newsraft
 printf '%s\n' \
     aerc w3m \
-    alacritty \
     bluez bluez-utils \
     feh \
     firefox firefox-ublock-origin firefox-noscript \
-    gammastep \
     imagemagick ghostscript \
     monero \
     mpv \
