@@ -1,6 +1,7 @@
 #!/bin/sh
+cd "$(basename "$0")" || exit 1
 
-pacman -C rootfs/etc/pacman.conf -Sy --noconfirm --needed sbctl
+pacman --config rootfs/etc/pacman.conf -Sy --noconfirm --needed sbctl
 
 if ! sbctl status | grep -q '^Setup Mode:.*Enabled$'; then
     printf '%s\n' \

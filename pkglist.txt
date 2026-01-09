@@ -24,6 +24,7 @@ yq
 git
 
 inotify-tools
+perl-rename
 
 iproute2
 iptables-nft
@@ -35,26 +36,21 @@ iwd
 qrencode
 
 bash-language-server
-neovim-lspconfig
+neovim
 pyright
 python-black
 python-pynvim
 ripgrep
-tree-sitter-bash
-tree-sitter-python
 
 openssh
 
 crun
+docker-compose
 podman
-podman-compose
 
 psmisc
 
 reflector
-
-perl-rename
-renameutils
 
 7zip
 rsync

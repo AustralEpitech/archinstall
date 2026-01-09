@@ -1,7 +1,7 @@
 #!/bin/sh
 
 root="$(findmnt -n -osource /)"
-esp="$(findmnt -n -osource /)"
+esp="$(findmnt -n -osource /efi/)"
 
 {
 cryptdev="$(cryptsetup status "$root" | awk '/device/{print $2}')"
@@ -18,5 +18,5 @@ mkinitcpio -P
 
 for l in arch-linux arch-linux-lts-fallback; do
     efibootmgr --create --unicode --label "$l" \
-        --disk "$esp" --part 1 --loader "\\EFI\\Linux\\$l.efi"
+        --disk "$esp" --loader "\\EFI\\Linux\\$l.efi"
 done

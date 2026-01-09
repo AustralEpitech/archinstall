@@ -4,14 +4,13 @@
 printf '%s\n' \
     aerc w3m \
     bluez bluez-utils \
-    feh \
     firefox firefox-ublock-origin firefox-noscript \
     imagemagick ghostscript \
     monero \
-    mpv \
+    mpv-mpris \
     noto-fonts noto-fonts-cjk noto-fonts-emoji otf-font-awesome \
     pass pass-otp \
-    pipewire-jack playerctl rtkit \
+    pipewire-jack rtkit \
     qemu-base qemu-hw-usb-host qemu-hw-display-qxl qemu-ui-gtk dnsmasq usbutils \
     xdg-utils xdg-user-dirs \
     yt-dlp \

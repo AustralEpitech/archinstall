@@ -3,6 +3,8 @@
 printf '%s\n' \
     bemenu-wayland pinentry-bemenu \
     foot \
+    grim slurp \
+    imv \
     river \
     swayidle swaylock \
     wl-clipboard wtype \
