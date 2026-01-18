@@ -6,9 +6,13 @@ printf '%s\n' \
     grim slurp \
     imv \
     river \
+    swaybg \
     swayidle swaylock \
-    wl-clipboard wtype \
-    wlr-randr swaybg wlsunset \
+    wl-clipboard \
+    wlopm \
+    wlr-randr \
+    wlsunset \
+    wtype \
     xdg-desktop-portal-wlr \
         >> pkglist.txt
 

@@ -16,5 +16,5 @@ fi
 
 {
     . ./config
-    sh ./modules/"$install_type".sh
+    sh "./modules/$install_type.sh"
 } 2>&1 | tee logs.out

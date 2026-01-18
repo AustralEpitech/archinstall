@@ -4,15 +4,17 @@
 printf '%s\n' \
     aerc w3m \
     bluez bluez-utils \
-    firefox firefox-ublock-origin firefox-noscript \
+    firefox firefox-noscript firefox-ublock-origin \
     imagemagick ghostscript \
     monero \
     mpv-mpris \
     noto-fonts noto-fonts-cjk noto-fonts-emoji otf-font-awesome \
-    pass pass-otp \
+    pass \
     pipewire-jack rtkit \
-    qemu-base qemu-hw-usb-host qemu-hw-display-qxl qemu-ui-gtk dnsmasq usbutils \
-    xdg-utils xdg-user-dirs \
+    qemu-base qemu-chardev-spice qemu-hw-display-qxl qemu-hw-usb-host dnsmasq spice-gtk \
+    usbutils \
+    xdg-user-dirs \
+    xdg-utils \
     yt-dlp \
     zathura-pdf-poppler \
         >> pkglist.txt
