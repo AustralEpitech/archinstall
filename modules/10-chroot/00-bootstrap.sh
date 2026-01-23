@@ -6,6 +6,6 @@ hwclock --systohc
 
 sed -Ei "/^#($locales)\.UTF-8/s/#//" /etc/locale.gen
 locale-gen
-echo "LANG=$lang.UTF-8" > /etc/locale.conf
+printf '%s\n' "LANG=$lang.UTF-8" > /etc/locale.conf
 
-echo "$hostname" > /etc/hostname
+printf '%s\n' "$hostname" > /etc/hostname

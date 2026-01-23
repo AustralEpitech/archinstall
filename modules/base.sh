@@ -12,7 +12,3 @@ done
 for f in modules/10-chroot/user/*.sh; do
     arch-chroot /mnt su - "$username" -c "sh -x" < "$f"
 done
-
-for i in modules/20-postchroot/*.sh; do
-    sh -x "$i"
-done

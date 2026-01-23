@@ -1,15 +1,15 @@
 #!/bin/sh
 
-root="$(findmnt -n -osource /)"
-esp="$(findmnt -n -osource /efi/)"
+root=$(findmnt -n -osource /)
+esp=$(findmnt -n -osource /efi/)
 
 {
-cryptdev="$(cryptsetup status "$root" | awk '/device/{print $2}')"
+cryptdev=$(cryptsetup status "$root" | awk '/device/{print $2}')
 if [ -n "$cryptdev" ]; then
-    echo "rd.luks.name=$(lsblk -ndo uuid "$cryptdev")=$(basename "$root") "
+    printf %s "rd.luks.name=$(lsblk -ndo uuid "$cryptdev")=$(basename "$root") "
 fi
 
-echo "root=$root init=/lib/systemd/systemd rw"
+printf '%s\n' "root=$root init=/lib/systemd/systemd rw"
 } > /etc/cmdline.d/root.conf
 
 sbctl create-keys

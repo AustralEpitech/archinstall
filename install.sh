@@ -1,15 +1,15 @@
 #!/bin/sh
-cd "$(basename "$0")" || exit 1
+cd "${0%/*}" || exit 1
 
 pacman --config rootfs/etc/pacman.conf -Sy --noconfirm --needed sbctl
 
 if ! sbctl status | grep -q '^Setup Mode:.*Enabled$'; then
     printf '%s\n' \
         'If you want Secure Boot support, you need to put your system in Setup Mode' \
-        'See https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot'
-    printf 'Reboot into the firmware setup interface? [Y/n] '
+        'See https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot' \
+        'Reboot into the firmware setup interface? [Y/n] ' >&2
     read -r ANS
-    if echo "$ANS" | grep -qiP '^(y|$)'; then
+    if printf %s "$ANS" | grep -qi '^\(y\|$\)'; then
         systemctl reboot --firmware-setup
     fi
 fi

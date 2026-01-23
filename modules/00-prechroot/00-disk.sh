@@ -36,7 +36,7 @@ if [ -n "$swapfile" ]; then
     dd if=/dev/zero of=/mnt/swapfile bs=1M count="$swapfile" status=progress
     chmod 0600 /mnt/swapfile
     mkswap /mnt/swapfile
-    echo "/swapfile	none	swap	defaults	0 0" >> /mnt/etc/fstab
+    printf '%s\n' '/swapfile	none	swap	defaults	0 0' >> /mnt/etc/fstab
 fi
 
 cp -rfTv rootfs/ /mnt/

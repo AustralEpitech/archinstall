@@ -1,13 +1,13 @@
 #!/bin/sh
 #shellcheck disable=SC2154
 
-shell="$(sed -n "/$shell/{p;q}" /etc/shells)"
+shell=$(sed -n "/$shell/{p;q}" /etc/shells)
 useradd -mG wheel,video "$username" -s "${shell:-/bin/bash}"
 
 if [ -n "$rootpasswd" ]; then
-    echo "root:$rootpasswd" | chpasswd
+    printf '%s\n' "root:$rootpasswd" | chpasswd
 fi
-echo "$username:$userpasswd" | chpasswd
+printf '%s\n' "$username:$userpasswd" | chpasswd
 
 if [ "$autologin" = 1 ]; then
     systemctl edit --drop-in=autologin.conf --stdin getty@tty1.service <<EOF
