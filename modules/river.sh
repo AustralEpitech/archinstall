@@ -8,6 +8,7 @@ printf '%s\n' \
     river \
     swaybg \
     swayidle swaylock \
+    wayland-protocols tllist \
     wl-clipboard \
     wlopm \
     wlr-randr \
